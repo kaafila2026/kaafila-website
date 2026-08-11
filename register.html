@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Kaafila 2026 — Shiv Nadar School</title>
+<meta name="description" content="Register for Kaafila 2026 at Shiv Nadar School. Separate forms for competitive and non-competitive events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=202608071500">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="wordmark">
+      <img class="wordmark-logo" src="img/kaafila-lockup.png" alt="Kaafila — Shiv Nadar School">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+    </button>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="register.html" aria-current="page">Register</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section" data-band="navy" style="padding-bottom: 2rem;">
+    <div class="container" style="max-width: 900px;">
+      <p class="eyebrow">Kaafila 2026</p>
+      <h1 class="section-title" style="font-size: 2.4rem;">Register</h1>
+      <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
+        There are two registration forms — one for competitive events, one for
+        non-competitive. Read the guidelines for the events you are entering
+        before you register.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" data-band="white" style="padding-top: 2.5rem;">
+    <div class="container" style="max-width: 900px;">
+
+      <div class="register-card" data-reg="competitive">
+        <div class="register-head">
+          <p class="eyebrow">Form 1</p>
+          <h2 class="section-title" style="font-size: 1.5rem;">Competitive Events</h2>
+        </div>
+        <p class="register-note">
+          Events judged for places and points. Several have entry caps or a
+          preliminary round — check each event's guidelines for what you need to
+          submit and by when.
+        </p>
+        <ul class="register-events" data-register-list="competitive"></ul>
+        <a class="btn btn-solid register-btn" data-register-link="competitive" href="#" target="_blank" rel="noopener">
+          Register for competitive events ↗
+        </a>
+      </div>
+
+      <div class="register-card" data-reg="non-competitive">
+        <div class="register-head">
+          <p class="eyebrow">Form 2</p>
+          <h2 class="section-title" style="font-size: 1.5rem;">Non-Competitive Events</h2>
+        </div>
+        <p class="register-note">
+          Workshops and showcases — taken part in, not scored. The brochure asks
+          that you read the non-competitive guidelines before registering.
+        </p>
+        <ul class="register-events" data-register-list="non-competitive"></ul>
+        <a class="btn btn-solid register-btn" data-register-link="non-competitive" href="#" target="_blank" rel="noopener">
+          Register for non-competitive events ↗
+        </a>
+      </div>
+
+      <p class="schedule-note" style="margin-top: var(--space-4);">
+        Registration on the day opens at 08:30 AM in the Admin Block, Main Foyer.
+        Questions? <a href="contact.html" style="text-decoration: underline;">Get in touch</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row" style="padding-top: 1.5rem;">
+    <span>© 2026 Shiv Nadar School · Kaafila</span>
+    <span>Taana Baana — The Timelessness of Humanity</span>
+  </div>
+</footer>
+
+<script src="js/events-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
