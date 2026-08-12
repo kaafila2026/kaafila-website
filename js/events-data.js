@@ -61,21 +61,25 @@ const KAAFILA_TICKETS = {
   events: [
     {
       name: "Headline Act",
+      featuring: "Darzi",
       when: "18th August, 03:45 PM – 04:45 PM · WCH",
       blurb: "An electrifying performance that turns art into an experience — renowned artists, comedians, storytellers and performers, exclusively for Shiv Nadar School students. Always one of the most awaited of the festival: it's where the auditorium becomes a memory."
     },
     {
       name: "Shaam-e-Rang",
+      featuring: "Mukhtiyar Ali",
       when: "19th August, 05:30 PM – 06:30 PM · WCH",
       blurb: "Parents Night — a Sufi evening thanking our parents for their unwavering support, with soulful cultural performances by renowned artists like Mir Ali Basu. An evening where art, gratitude and joy come together, and a small gift to our biggest supporters."
     },
     {
       name: "Clash of Bands",
+      featuring: "(ticketed competition)",
       when: "20th August, 03:30 PM – 05:30 PM · WCH",
       blurb: "A showcase of passion and musical talent, where school bands step into the spotlight to make music that doesn't just entertain, but moves. The festival's closing competition, and one of its loudest rooms."
     },
     {
       name: "One Act Play",
+      featuring: "(ticketed competition)",
       when: "18th August, 09:45 AM – 12:30 PM · WCH",
       blurb: "As You Weave It! — student teams stage original work on the threads that bind us: empathy, resilience, belonging. Five teams, twenty-five minutes each, from an empty stage to an empty stage. A discussion with the teams follows at 12:30 PM in Collab Room 1."
     }

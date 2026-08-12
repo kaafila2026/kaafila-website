@@ -231,7 +231,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 0.6rem;
+  padding-block: 0.4rem;
 }
 
 /* Header lockup — one supplied image carrying both marks: the school's lotus
@@ -240,33 +240,57 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
    which duplicated what the artwork already contains.
 
    The file is white line-work with a soft glow, which disappears into this navy
-   chrome and reads cleanly against it. img/kaafila-lockup.png is the supplied
-   KAAFILA-NEW-WORDMARK.png cropped to its artwork (1536x1024 -> 1483x477): the
-   transparent margin was over half the canvas height, so sizing by height left
-   the lockup itself less than half as tall as the box and far too small to
-   read. The original is kept in img/ untouched. */
+   chrome and reads cleanly against it.
+
+   img/kaafila-lockup.png is a 1536x1024 canvas whose artwork occupies only the
+   band from y=264 to y=740 — well under half the height. Sized the plain way
+   (height on the <img>), most of the header's logo box is therefore empty
+   margin and the mark renders at under half the height it was given, far too
+   small to read. Shipping a pre-cropped file did not survive: img/ gets
+   restored from the supplied assets and the trimmed copy disappears with it.
+
+   So the crop is done here instead, and nothing outside this rule has to hold.
+   .wordmark is a window of the band's proportions; the <img> is blown up to
+   2.15x that height and pulled up and left so the artwork alone fills it.
+   --lockup-h is the height the mark actually renders at, and the only number
+   worth touching — the multipliers are just the band's geometry:
+
+     img height   1024/476 = 2.1513      window width  1497/476 = 3.1450
+     pull up       264/476 = 0.5546      pull left       24/476 = 0.0504
+
+   The band is measured a few pixels loose on every side, because the supplied
+   PNG has been re-encoded before with the artwork landing a pixel or two
+   over. If the file is ever replaced with one already cropped, delete this
+   window and go back to a plain height on .wordmark-logo. */
 .wordmark {
-  display: flex;
-  align-items: center;
+  --lockup-h: 96px;
+  display: block;
+  overflow: hidden;
+  flex: none;
+  width: calc(var(--lockup-h) * 3.145);
+  height: var(--lockup-h);
   line-height: 1;
 }
-/* The lockup is a wide, three-part image with small type inside it ("Education
-   for Life" is the smallest line), so it needs real height to stay legible —
-   more than a plain logo would. The row's own padding is trimmed to stop the
-   header growing to match. */
 .wordmark-logo {
-  height: 84px;
-  width: auto;
   display: block;
+  height: calc(var(--lockup-h) * 2.1513);
+  width: auto;
+  max-width: none;
+  margin-top: calc(var(--lockup-h) * -0.5546);
+  margin-left: calc(var(--lockup-h) * -0.0504);
 }
-@media (max-width: 860px) {
-  .wordmark-logo { height: 68px; }
+/* The mark is 3.1x as wide as it is tall, so its height is what decides whether
+   it still clears the seven nav links. 80px puts it at ~250px wide, the most
+   that fits beside them down to the 780px breakpoint where the nav folds into
+   the toggle and the row belongs to the logo again. */
+@media (max-width: 1000px) {
+  .wordmark { --lockup-h: 80px; }
 }
 @media (max-width: 620px) {
-  .wordmark-logo { height: 56px; }
+  .wordmark { --lockup-h: 64px; }
 }
 @media (max-width: 420px) {
-  .wordmark-logo { height: 48px; }
+  .wordmark { --lockup-h: 52px; }
 }
 
 .nav-links {
@@ -713,6 +737,119 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 }
 @media (max-width: 780px) {
   .theme-block { grid-template-columns: 1fr; gap: var(--space-3); }
+}
+
+/* Sponsors ---------------------------------------------------------------- */
+/* The heading column of the About block is otherwise empty below its title, so
+   the sponsor cards go there. The woven rule above is a ::after on that column
+   and therefore always its last box; laying the column out as a flex stack lets
+   the rule be ordered back under the title where it belongs, with the sponsors
+   below it. Scoped to --sponsors so the two .theme-blocks on about.html keep
+   the plain behaviour. */
+.theme-block--sponsors > :first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.theme-block--sponsors > :first-child::after { order: 1; }
+.sponsor-strip {
+  order: 2;
+  width: 100%;
+  max-width: 340px;
+  margin-top: var(--space-3);
+}
+.sponsor-strip-label { margin-bottom: var(--space-2); }
+.sponsor-list {
+  display: grid;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* Every mark is drawn for white, so each gets its own white card rather than
+   being laid straight on the brown. The card is a fixed height so three logos
+   of very different proportions still line up as one column. */
+.sponsor-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  padding: 0.7rem 1.1rem;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.sponsor-card img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  transform: scale(var(--logo-scale, 1));
+}
+/* County's PNG is a 5760x3240 canvas carrying a centred mark that is half its
+   width and under a third of its height — contained plainly it comes out a
+   third the size of the other two. The artwork is centred on the canvas, so
+   scaling it up in place is enough; the card clips what spills. */
+.sponsor-card--county img { --logo-scale: 2.8; }
+
+/* Credits ----------------------------------------------------------------- */
+/* Roles vary from one name to four, so the cards are a masonry-ish auto-fill
+   grid rather than fixed rows: a card is only as tall as the names it holds,
+   and the tiers stay scannable at any width. --team-accent is set per tier on
+   the group so the edge does the sorting; it must be a colour that separates
+   from --band-surface on whichever band the section sits, which on brown rules
+   out half the thread palette. */
+.team-group + .team-group { margin-top: var(--space-4); }
+.team-group-title {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--band-fg-dim);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--band-line);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  gap: var(--space-2);
+  align-items: start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team-card {
+  padding: var(--space-3);
+  background: var(--band-surface);
+  border: 1px solid var(--band-line);
+  border-left: 3px solid var(--team-accent, var(--band-line-strong));
+  border-radius: var(--radius);
+}
+.team-role {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--band-fg-dim);
+}
+.team-names {
+  display: grid;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team-names li {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--band-heading);
 }
 
 /* Purpose / list blocks ----------------------------------------------------*/
@@ -1637,6 +1774,22 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: 0.02em;
+}
+/* The booked act, directly under the event name. The names carry the weight —
+   they are the reason to book — so "ft." itself stays quiet and lets them read
+   as the line's subject. */
+.ticket-card-ft {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--band-heading);
+}
+.ticket-card-ft .ft {
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--band-fg-dim);
 }
 .ticket-card-when {
   margin: 0.35rem 0 var(--space-2);

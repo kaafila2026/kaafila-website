@@ -100,9 +100,12 @@ function renderTicketsPage() {
 
   const list = document.querySelector("[data-ticket-events]");
   if (list) {
+    // `featuring` is optional: an event without a booked act simply omits the
+    // line rather than printing a bare "ft.".
     list.innerHTML = cfg.events.map((e) => `
       <div class="ticket-card">
         <h2 class="ticket-card-name">${e.name}</h2>
+        ${e.featuring ? `<p class="ticket-card-ft"><span class="ft">ft.</span> ${e.featuring}</p>` : ""}
         <p class="ticket-card-when">${e.when}</p>
         <p class="ticket-card-blurb">${e.blurb}</p>
       </div>`).join("");
