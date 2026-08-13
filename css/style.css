@@ -863,16 +863,6 @@ a.update-card:focus-visible .update-card-go {
 }
 @media (max-width: 780px) {
   .theme-block { grid-template-columns: 1fr; gap: var(--space-3); }
-  /* Stacked, the sponsor cards would wedge themselves between the title and
-     the text it introduces. Dissolving the heading column with display:contents
-     lifts its parts into the same stack as the prose, so the strip can be
-     ordered last while the title stays on top. The stack drops its gap in
-     favour of the margins the parts already carry — one gap can't serve both
-     the tight title/rule spacing and the looser break before the prose. */
-  .theme-block--sponsors { display: flex; flex-direction: column; gap: 0; }
-  .theme-block--sponsors > :first-child { display: contents; }
-  .theme-block--sponsors > :last-child { order: 2; margin-top: var(--space-3); }
-  .theme-block--sponsors .sponsor-strip { order: 3; }
 }
 
 /* Sponsors ---------------------------------------------------------------- */
@@ -895,6 +885,24 @@ a.update-card:focus-visible .update-card-go {
   margin-top: var(--space-3);
 }
 .sponsor-strip-label { margin-bottom: var(--space-2); }
+
+/* Stacked on a phone, the sponsor cards would wedge themselves between the
+   title and the text it introduces. Dissolving the heading column with
+   display:contents lifts its parts into the same stack as the prose, so the
+   strip can be ordered last while the title stays on top. The stack drops its
+   gap in favour of the margins the parts already carry — one gap can't serve
+   both the tight title/rule spacing and the looser break before the prose.
+
+   This has to sit *after* the desktop sponsor rules above, not up with the
+   other 780px overrides: the selectors are the same weight, so whichever is
+   written last wins, and `display: flex` on the heading column would otherwise
+   overrule the `display: contents` that makes the reordering possible. */
+@media (max-width: 780px) {
+  .theme-block--sponsors { display: flex; flex-direction: column; gap: 0; }
+  .theme-block--sponsors > :first-child { display: contents; }
+  .theme-block--sponsors > :last-child { order: 2; margin-top: var(--space-3); }
+  .theme-block--sponsors .sponsor-strip { order: 3; }
+}
 .sponsor-list {
   display: grid;
   gap: var(--space-2);
