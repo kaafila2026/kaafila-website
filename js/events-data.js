@@ -398,9 +398,14 @@ const KAAFILA_EVENTS = [
 // Day". Those tables list times only, so rows carry no venue; the renderer
 // omits the line rather than showing a stale room. The 17th and 19th are
 // unchanged — the finalised text to hand does not cover them.
+// `date` is the same day in machine-readable form (local time). The schedule
+// page only ever prints `day`, but the Updates console on the home page needs
+// real Date objects to know what is over, what is live and what is next, and
+// deriving them from the prose would mean parsing "18th August, Tuesday".
 const KAAFILA_SCHEDULE = [
   {
     day: "18th August, Tuesday",
+    date: "2026-08-18",
     items: [
       { time: "08:30 AM – 09:00 AM", title: "Registrations", venue: "Admin Block, Main Foyer" },
       { time: "09:00 AM – 09:40 AM", title: "Opening Ceremony", venue: "WCH" },
@@ -417,9 +422,9 @@ const KAAFILA_SCHEDULE = [
   },
   {
     day: "19th August, Wednesday",
+    date: "2026-08-19",
     note: "For Shiv Nadar School, Noida students only.",
     items: [
-      { time: "09:30 AM – 12:00 PM", title: "Middle School — Film Festival", venue: "Senior Library IC MYP 3" },
       { time: "09:30 AM - 10:30 AM", title: "Keynote Speaker", venue:"WCH"},
       { time: "11:00 AM – 01:00 PM", title: "Spotlight for PY Students", venue: "WCH" },
       { time: "12:00 PM – 01:00 PM", title: "Middle School — Food Festival", venue: "Across School Courtyard" },
@@ -431,6 +436,7 @@ const KAAFILA_SCHEDULE = [
   },
   {
     day: "20th August, Thursday",
+    date: "2026-08-20",
     items: [
       { time: "08:30 AM – 09:00 AM", title: "Registrations", venue: "Admin Block, Main Foyer" },
       { time: "09:00 AM – 10:00 AM", title: "Anugoonj (Solo Dance)", venue: "WCH", eventId: "classical-solo-dance-competition" },
@@ -440,10 +446,54 @@ const KAAFILA_SCHEDULE = [
       { time: "10:00 AM – 11:00 AM", title: "Beat Beyond Borders (Beat Boxing)", venue: "ICMPH 4th floor", eventId: "beat-beyond-borders" },
       { time: "10:00 AM – 12:00 PM", title: "Weave the Beat (Group Dance)", venue: "WCH", eventId: "souls-in-sync" },
       { time: "11:30 AM – 01:30 PM", title: "Thahaaka (Stand Up Comedy)", venue: "ICMPH 4th floor", eventId: "standup-workshop" },
-      { time: "12:00 PM – 02:00 PM", title: "Chaupaal (Street Play Performance)", venue: "IC Amphitheatre", eventId: "improv-nukkad-natak" },
+      { time: "12:00 PM – 02:00 PM", title: "Chaupaal (Street Play Performance)", venue: "ICMPH 4th floor", eventId: "improv-nukkad-natak" },
       { time: "01:30 PM – 02:30 PM", title: "Senior School Food Festival", venue: "Across School Courtyard" },
       { time: "03:00 PM – 05:00 PM", title: "Clash of Bands (Rock Band)", venue: "WCH", eventId: "clash-of-bands" },
       { time: "06:00 PM – 06:30 PM", title: "Curtain Drawing (Closing Ceremony)", venue: "WCH" }
     ]
+  }
+];
+
+/* -------------------------------------------------------------------------
+   Updates — the festival noticeboard, shown on the home page as one card per
+   update. THIS IS THE ONE LIST TO EDIT WHEN SOMETHING IS ANNOUNCED. Add the
+   newest update at the top; the cards read in this order.
+
+   text     the headline, one line. Kept short — it is the card's title.
+   note     the quieter line under it. Optional.
+   href     where the card goes when clicked. Optional; when `eventId` is set
+            and href is not, the event's own page is used.
+   eventId  ties the update to an event in KAAFILA_EVENTS. The card then takes
+            that event's category — its label and its thread colour — instead
+            of reading as a general announcement.
+
+   Nothing here is dated: an update stays up until it is deleted, which is
+   easier to keep honest than a list of expiry dates nobody revisits.
+   ------------------------------------------------------------------------- */
+const KAAFILA_UPDATES = [
+  {
+    text: "Headline Act: Darzi",
+    note: "Tickets are now live",
+    href: "tickets.html"
+  },
+  {
+    text: "Shaam-e-Rang ft. Mukhtiyar Ali",
+    note: "Parents' Night · 19 August, 05:30 PM · WCH",
+    href: "tickets.html"
+  },
+  {
+    text: "Registrations are open",
+    note: "Twelve events across Music, Dance, Visual Arts and Theatre",
+    href: "register.html"
+  },
+  {
+    text: "Clash of Bands: entries need a video",
+    note: "A 2-minute preliminary practice video goes in with your entry",
+    eventId: "clash-of-bands"
+  },
+  {
+    text: "Full schedule is up",
+    note: "Three days · 18–20 August · every timing and venue",
+    href: "schedule.html"
   }
 ];

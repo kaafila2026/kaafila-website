@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initReadMore();
   initScrollReveal();
   initWeaveRules();
+  initUpdatesBoard();
 });
 
 /* Mobile nav toggle --------------------------------------------------- */
@@ -701,4 +702,157 @@ function initScrollReveal() {
   );
 
   targets.forEach((el) => observer.observe(el));
+}
+
+/* -------------------------------------------------------------------------
+   Updates board (home page) — the festival noticeboard.
+
+   Two parts, both fed from js/events-data.js so the school only edits data:
+     · a countdown to the next thing on the schedule (or to the end of
+       whatever is running right now), in four cells
+     · one card per entry in KAAFILA_UPDATES, in the same bordered grid the
+       category cards use, each carrying its category's thread colour
+
+   Times are read as the visitor's own clock, which is the right answer for a
+   festival everyone attends in person: the schedule says 09:45 and their
+   phone says 09:45.
+
+   Progressive enhancement — the board starts `hidden` in the HTML and is only
+   revealed once there is something in it, so a missing data file leaves the
+   <noscript> line rather than an empty frame.
+   ------------------------------------------------------------------------- */
+function initUpdatesBoard() {
+  const board = document.querySelector("[data-updates]");
+  if (!board || typeof KAAFILA_SCHEDULE === "undefined") return;
+
+  const updates = typeof KAAFILA_UPDATES !== "undefined" ? KAAFILA_UPDATES : [];
+  const entries = buildScheduleEntries();
+  if (!entries.length && !updates.length) return;
+
+  const grid = board.querySelector("[data-updates-grid]");
+  if (grid) {
+    grid.innerHTML = updates.map(updateCardHtml).join("");
+    grid.hidden = updates.length === 0;
+  }
+
+  const countdown = board.querySelector("[data-countdown]");
+  const label = board.querySelector("[data-countdown-label]");
+  const cells = countdown ? [...countdown.querySelectorAll("[data-unit]")] : [];
+
+  function tick() {
+    const now = new Date();
+    const live = entries.filter((e) => e.start && e.end && now >= e.start && now <= e.end);
+    const next = entries.find((e) => e.start && e.start > now);
+
+    let target = null;
+    let text = "";
+    if (live.length) {
+      // Count to the end of whatever is on: during the festival the useful
+      // question stops being "when does it start".
+      target = live.reduce((latest, e) => (e.end > latest ? e.end : latest), live[0].end);
+      text = live.length === 1 ? `On now — ${live[0].title}, wrapping in` : `${live.length} events on now, wrapping in`;
+    } else if (next) {
+      target = next.start;
+      text = `${next.title} · ${next.when} — starting in`;
+    } else {
+      text = "Kaafila 2026 has drawn its curtain. Thank you for weaving it with us.";
+    }
+
+    if (label) label.textContent = text;
+    if (countdown) countdown.hidden = !target;
+    if (!target) return;
+
+    const total = Math.max(0, Math.floor((target - now) / 1000));
+    const value = {
+      days: Math.floor(total / 86400),
+      hrs: Math.floor((total % 86400) / 3600),
+      min: Math.floor((total % 3600) / 60),
+      sec: total % 60
+    };
+    cells.forEach((cell) => {
+      const n = String(value[cell.dataset.unit]).padStart(2, "0");
+      const num = cell.querySelector(".countdown-num");
+      if (num.textContent !== n) num.textContent = n;
+    });
+  }
+
+  board.hidden = false;
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* An update card. Cards that lead somewhere are links — an update tied to an
+   event goes to that event's page unless it names a href of its own; one that
+   leads nowhere stays a plain box rather than a dead anchor. */
+function updateCardHtml(update) {
+  const event = update.eventId && typeof KAAFILA_EVENTS !== "undefined"
+    ? KAAFILA_EVENTS.find((e) => e.id === update.eventId)
+    : null;
+  const meta = event && typeof KAAFILA_CATEGORIES !== "undefined"
+    ? KAAFILA_CATEGORIES[event.category]
+    : null;
+  const href = update.href || (update.eventId ? `event.html?id=${encodeURIComponent(update.eventId)}` : null);
+
+  const inner = `
+    <span class="update-card-label">${escapeHtml(meta ? meta.label : updateCardLabel(href))}</span>
+    <span class="update-card-title">${escapeHtml(update.text)}</span>
+    ${update.note ? `<span class="update-card-note">${escapeHtml(update.note)}</span>` : ""}
+    ${href ? `<span class="update-card-go" aria-hidden="true">&rarr;</span>` : ""}`;
+
+  const style = meta ? ` style="--thread: ${meta.thread}"` : "";
+  return href
+    ? `<a class="update-card" href="${escapeAttr(href)}"${style}>${inner}</a>`
+    : `<div class="update-card"${style}>${inner}</div>`;
+}
+
+/* An update with no event behind it is labelled by where it leads, since
+   "Tickets" or "Schedule" tells a reader more than "Announcement" repeated
+   down the row. Anything else falls back to the generic word. */
+function updateCardLabel(href) {
+  const page = String(href || "").split(/[?#]/)[0];
+  return { "tickets.html": "Tickets", "register.html": "Registration", "schedule.html": "Schedule",
+           "gallery.html": "Gallery", "contact.html": "Contact" }[page] || "Announcement";
+}
+
+/* Flattens the day-by-day schedule into one list of dated entries, in start
+   order. Items whose time can't be parsed are kept — they still belong to the
+   day — and simply never become the countdown's target. */
+function buildScheduleEntries() {
+  const out = [];
+  KAAFILA_SCHEDULE.forEach((day) => {
+    const shortDay = updatesShortDay(day);
+    day.items.forEach((item) => {
+      const [startRaw, endRaw] = String(item.time).split(/\s*[–—-]\s*/);
+      const start = parseScheduleTime(day.date, startRaw);
+      const end = parseScheduleTime(day.date, endRaw) || start;
+      out.push({
+        title: item.title,
+        when: `${shortDay}, ${(startRaw || "").trim()}`,
+        start,
+        end
+      });
+    });
+  });
+  return out.sort((a, b) => (a.start && b.start ? a.start - b.start : 0));
+}
+
+// "18th August, Tuesday" + date → "18 August". The date field is
+// authoritative; the prose is only a fallback for a day without one.
+function updatesShortDay(day) {
+  if (day.date) {
+    const d = new Date(`${day.date}T00:00:00`);
+    if (!isNaN(d)) return `${d.getDate()} ${d.toLocaleString(undefined, { month: "long" })}`;
+  }
+  return String(day.day).split(",")[0];
+}
+
+// "09:45 AM" on a given yyyy-mm-dd, in the visitor's own timezone.
+function parseScheduleTime(dateISO, clock) {
+  if (!dateISO || !clock) return null;
+  const m = /(\d{1,2}):(\d{2})\s*([AP])M/i.exec(clock);
+  const day = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateISO);
+  if (!m || !day) return null;
+  let hours = Number(m[1]) % 12;
+  if (m[3].toUpperCase() === "P") hours += 12;
+  return new Date(Number(day[1]), Number(day[2]) - 1, Number(day[3]), hours, Number(m[2]), 0, 0);
 }

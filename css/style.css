@@ -703,6 +703,132 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .category-card[data-cat="dance"]    { --thread: var(--thread-dance); }
 .category-card[data-cat="visual"]   { --thread: var(--thread-visual); }
 .category-card[data-cat="theatre"]  { --thread: var(--thread-theatre); }
+/* Updates board ----------------------------------------------------------- */
+/* Same construction as the category grid above — cells separated by a 1px
+   line that is really the grid's own background showing through the gaps, so
+   the rules between boxes are woven rather than drawn four times over. The
+   countdown reuses it too, which is what keeps a ticking clock from looking
+   like a different piece of furniture. */
+.countdown-label {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--band-fg-dim);
+}
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--band-line);
+  border: 1px solid var(--band-line);
+  max-width: 620px;
+  margin-bottom: var(--space-4);
+}
+.countdown-cell {
+  background: var(--band-bg);
+  padding: var(--space-2) var(--space-1);
+  text-align: center;
+}
+.countdown-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: var(--band-heading);
+  /* Seconds change width on a proportional numeral and shuffle the whole row;
+     tabular figures hold the cells still. */
+  font-variant-numeric: tabular-nums;
+}
+.countdown-unit {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--band-fg-dim);
+}
+
+/* Three across rather than four: update cards carry a sentence, not a word,
+   and an odd count leaves a tidier last row here than it does at four. */
+.updates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--band-line);
+  border: 1px solid var(--band-line);
+}
+@media (max-width: 900px) {
+  .updates-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .updates-grid { grid-template-columns: 1fr; }
+}
+.update-card {
+  display: block;
+  position: relative;
+  background: var(--band-bg);
+  padding: var(--space-3) var(--space-2);
+  transition: background 0.25s ease;
+}
+/* The thread bar is the card's category showing at the top edge, exactly as
+   on the category cards; an announcement with no event behind it takes the
+   heading colour instead. */
+.update-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--thread, var(--band-heading));
+}
+a.update-card:hover,
+a.update-card:focus-visible { background: var(--band-surface); }
+.update-card-label {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--band-fg-dim);
+}
+.update-card-title {
+  display: block;
+  margin-top: var(--space-1);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: var(--band-heading);
+}
+.update-card-note {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--band-fg-dim);
+  font-size: 0.92rem;
+}
+.update-card-go {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--band-fg-dim);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+a.update-card:hover .update-card-go,
+a.update-card:focus-visible .update-card-go {
+  color: var(--band-heading);
+  transform: translateX(4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .update-card, .update-card-go { transition: none; }
+  a.update-card:hover .update-card-go { transform: none; }
+}
+
+.updates-more { margin: var(--space-3) 0 0; }
+
+@media (max-width: 520px) {
+  .countdown-num { font-size: 1.6rem; }
+  .countdown-unit { font-size: 0.6rem; letter-spacing: 0.1em; }
+}
 
 /* Theme / about copy blocks ----------------------------------------------*/
 .prose {
@@ -737,6 +863,16 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 }
 @media (max-width: 780px) {
   .theme-block { grid-template-columns: 1fr; gap: var(--space-3); }
+  /* Stacked, the sponsor cards would wedge themselves between the title and
+     the text it introduces. Dissolving the heading column with display:contents
+     lifts its parts into the same stack as the prose, so the strip can be
+     ordered last while the title stays on top. The stack drops its gap in
+     favour of the margins the parts already carry — one gap can't serve both
+     the tight title/rule spacing and the looser break before the prose. */
+  .theme-block--sponsors { display: flex; flex-direction: column; gap: 0; }
+  .theme-block--sponsors > :first-child { display: contents; }
+  .theme-block--sponsors > :last-child { order: 2; margin-top: var(--space-3); }
+  .theme-block--sponsors .sponsor-strip { order: 3; }
 }
 
 /* Sponsors ---------------------------------------------------------------- */

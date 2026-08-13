@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202608131100">
+<link rel="stylesheet" href="css/style.css?v=202608132100">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -70,14 +70,14 @@
         <div class="sponsor-strip">
           <p class="eyebrow sponsor-strip-label">Our Sponsors</p>
           <ul class="sponsor-list">
+            <li class="sponsor-card">
+              <img src="img/organic.png" alt="Organic Tattva" loading="lazy">
+            </li>
             <li class="sponsor-card sponsor-card--county">
               <img src="img/County-Group-Logo-Grey.png" alt="County Group" loading="lazy">
             </li>
             <li class="sponsor-card">
               <img src="img/lotte.png" alt="LOTTE India" loading="lazy">
-            </li>
-            <li class="sponsor-card">
-              <img src="img/organic.png" alt="Organic Tattva" loading="lazy">
             </li>
           </ul>
         </div>
@@ -93,6 +93,56 @@
         </div>
         <button class="btn" data-read-more aria-expanded="false" style="margin-top: 1.5rem;">Read More</button>
       </div>
+    </div>
+  </section>
+
+  <!-- Updates — the festival noticeboard. The countdown cells and the cards
+       are filled by initUpdatesBoard() in js/main.js from KAAFILA_UPDATES and
+       KAAFILA_SCHEDULE, so the school posts an update by editing
+       js/events-data.js and nothing else. Without JS the board never appears
+       and the <noscript> line points at the schedule, which carries the same
+       information as plain HTML. -->
+  <section class="section" id="updates" data-band="navy">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Latest</p>
+        <h2 class="section-title">Updates</h2>
+        <div class="weave-rule" data-weave role="presentation"></div>
+      </div>
+
+      <div data-updates hidden>
+        <p class="countdown-label" data-countdown-label></p>
+        <div class="countdown-grid" data-countdown hidden>
+          <div class="countdown-cell" data-unit="days">
+            <span class="countdown-num">00</span>
+            <span class="countdown-unit">Days</span>
+          </div>
+          <div class="countdown-cell" data-unit="hrs">
+            <span class="countdown-num">00</span>
+            <span class="countdown-unit">Hours</span>
+          </div>
+          <div class="countdown-cell" data-unit="min">
+            <span class="countdown-num">00</span>
+            <span class="countdown-unit">Minutes</span>
+          </div>
+          <div class="countdown-cell" data-unit="sec">
+            <span class="countdown-num">00</span>
+            <span class="countdown-unit">Seconds</span>
+          </div>
+        </div>
+
+        <div class="updates-grid" data-updates-grid></div>
+
+        <p class="updates-more"><a class="btn" href="schedule.html">Full Schedule</a></p>
+      </div>
+
+      <noscript>
+        <p>
+          Latest updates and the full three-day running order are on the
+          <a href="schedule.html">schedule</a>, with ticketed events on the
+          <a href="tickets.html">tickets page</a>.
+        </p>
+      </noscript>
     </div>
   </section>
 
@@ -144,6 +194,9 @@
   </div>
 </footer>
 
+<!-- The Updates board reads the schedule and the updates list, so the home
+     page now needs the shared data file too. -->
+<script src="js/events-data.js"></script>
 <script src="js/main.js"></script>
 
 <!-- Hero scroll scene. GSAP is served from js/vendor/ rather than a CDN so the
