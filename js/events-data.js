@@ -419,7 +419,8 @@ const KAAFILA_SCHEDULE = [
     day: "19th August, Wednesday",
     note: "For Shiv Nadar School, Noida students only.",
     items: [
-      { time: "09:30 AM – 12:00 PM", title: "Middle School — Film Festival", venue: "Library NC, Grade 8" },
+      { time: "09:30 AM – 12:00 PM", title: "Middle School — Film Festival", venue: "Senior Library IC MYP 3" },
+      { time: "09:30 AM - 10:30 AM", title: "Keynote Speaker", venue:"WCH"},
       { time: "11:00 AM – 01:00 PM", title: "Spotlight for PY Students", venue: "WCH" },
       { time: "12:00 PM – 01:00 PM", title: "Middle School — Food Festival", venue: "Across School Courtyard" },
       { time: "01:30 PM – 02:30 PM", title: "SY Food Festival", venue: "Across School Courtyard" },
@@ -436,12 +437,12 @@ const KAAFILA_SCHEDULE = [
       { time: "09:00 AM – 12:00 PM", title: "Rangrez (Canvas Painting)", venue: "Room 103+104, Middle Block, 3rd Floor", eventId: "canvas-painting" },
       { time: "09:00 AM – 02:00 PM", title: "Dress to Express (Day 2)", venue: "IC Theatre & Film Studio", eventId: "dress-to-express" },
       { time: "09:30 AM – 10:00 AM", title: "Chaupaal (Street Play Theme Reveal)", venue: "IC Amphitheatre (Classrooms)", eventId: "improv-nukkad-natak" },
-      { time: "10:00 AM – 11:00 AM", title: "Beat Beyond Borders (Beat Boxing)", venue: "IC Music Studio", eventId: "beat-beyond-borders" },
+      { time: "10:00 AM – 11:00 AM", title: "Beat Beyond Borders (Beat Boxing)", venue: "ICMPH 4th floor", eventId: "beat-beyond-borders" },
       { time: "10:00 AM – 12:00 PM", title: "Weave the Beat (Group Dance)", venue: "WCH", eventId: "souls-in-sync" },
-      { time: "12:00 PM – 02:00 PM", title: "Thahaaka (Stand Up Comedy)", venue: "Senior Theatre Room", eventId: "standup-workshop" },
+      { time: "11:30 AM – 01:30 PM", title: "Thahaaka (Stand Up Comedy)", venue: "ICMPH 4th floor", eventId: "standup-workshop" },
       { time: "12:00 PM – 02:00 PM", title: "Chaupaal (Street Play Performance)", venue: "IC Amphitheatre", eventId: "improv-nukkad-natak" },
       { time: "01:30 PM – 02:30 PM", title: "Senior School Food Festival", venue: "Across School Courtyard" },
-      { time: "03:30 PM – 05:30 PM", title: "Clash of Bands (Rock Band)", venue: "WCH", eventId: "clash-of-bands" },
+      { time: "03:00 PM – 05:00 PM", title: "Clash of Bands (Rock Band)", venue: "WCH", eventId: "clash-of-bands" },
       { time: "06:00 PM – 06:30 PM", title: "Curtain Drawing (Closing Ceremony)", venue: "WCH" }
     ]
   }
