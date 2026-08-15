@@ -753,7 +753,7 @@ function initUpdatesBoard() {
       text = live.length === 1 ? `On now — ${live[0].title}, wrapping in` : `${live.length} events on now, wrapping in`;
     } else if (next) {
       target = next.start;
-      text = `KAAFILA STARTS ON · ${next.when} — STARTING IN`;
+      text = `KAAFILA 2026 STARTING IN`;
     } else {
       text = "Kaafila 2026 has drawn its curtain. Thank you for weaving it with us.";
     }
