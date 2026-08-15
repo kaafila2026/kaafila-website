@@ -408,16 +408,16 @@ const KAAFILA_SCHEDULE = [
     date: "2026-08-18",
     items: [
       { time: "08:30 AM – 09:00 AM", title: "Registrations", venue: "Admin Block, Main Foyer" },
-      { time: "09:00 AM – 09:40 AM", title: "Opening Ceremony", venue: "WCH" },
-      { time: "09:45 AM – 12:30 PM", title: "As You Weave It! (One Act Play)", venue: "WCH", eventId: "one-act-play" },
-      { time: "10:00 AM – 12:00 PM", title: "Naad Sutra (Hindustani Vocal)", venue: "IC MPH", eventId: "hindustani-vocal-competition" },
-      { time: "10:00 AM – 12:00 PM", title: "Rhythm Loom (Contemporary Dance)", venue: "Middle Block Dance Room, Room 101+102", eventId: "jazz-workshop" },
-      { time: "10:00 AM – 01:00 PM", title: "Rooh ka Resha (Mixed Media)", venue: "Crafts Room", eventId: "mixed-media" },
+      { time: "09:00 AM – 09:40 AM", title: "Opening Ceremony", venue: "WCH, 2nd Floor, Admin Block" },
+      { time: "09:45 AM – 12:30 PM", title: "As You Weave It! (One Act Play)", venue: "WCH, 2nd Floor, Admin Block", eventId: "one-act-play" },
+      { time: "10:00 AM – 12:00 PM", title: "Naad Sutra (Hindustani Vocal)", venue: "IC MPH, 4th Floor, IC Block", eventId: "hindustani-vocal-competition" },
+      { time: "10:00 AM – 12:00 PM", title: "Rhythm Loom (Contemporary Dance)", venue: "Middle Block Dance Room, Room 101+102, Third Floor", eventId: "jazz-workshop" },
+      { time: "10:00 AM – 01:00 PM", title: "Rooh ka Resha (Mixed Media)", venue: "Room 103+104, Middle Block, 3rd Floor", eventId: "mixed-media" },
       { time: "10:30 AM – 12:30 PM", title: "Thahaaka (Stand Up Comedy)", venue: "Senior Theatre Room", eventId: "standup-workshop" },
-      { time: "11:00 AM – 02:30 PM", title: "Dress to Express (Day 1) — Costume Making & Embodiment", venue: "Film and Theatre Studio", note: "Runs in two phases — costume making 11:00 AM – 12:30 PM, then a break, then embodiment 01:00 PM – 02:30 PM.", eventId: "dress-to-express" },
-      { time: "12:30 PM – 01:30 PM", title: "One Act Play Discussion", venue: "Collab Room 1", eventId: "one-act-play" },
-      { time: "02:00 PM – 02:30 PM", title: "The Grand Weave (Award Ceremony)", venue: "WCH" },
-      { time: "03:45 PM – 04:45 PM", title: "Headline Act (Internal Event)", venue: "WCH" }
+      { time: "11:00 AM – 02:30 PM", title: "Dress to Express (Day 1) — Costume Making & Embodiment", venue: "Film and Theatre Studio, IC Block, 2nd Floor", note: "Runs in two phases — costume making 11:00 AM – 12:30 PM, then a break, then embodiment 01:00 PM – 02:30 PM.", eventId: "dress-to-express" },
+      { time: "12:30 PM – 01:30 PM", title: "One Act Play Discussion", venue: "WCH, 2nd Floor, Admin Block", eventId: "one-act-play" },
+      { time: "02:00 PM – 02:30 PM", title: "The Grand Weave (Award Ceremony)", venue: "WCH, 2nd Floor, Admin Block" },
+      { time: "03:45 PM – 04:45 PM", title: "Headline Act (Internal Event)", venue: "WCH, 2nd Floor, Admin Block" }
     ]
   },
   {
@@ -425,13 +425,13 @@ const KAAFILA_SCHEDULE = [
     date: "2026-08-19",
     note: "For Shiv Nadar School, Noida students only.",
     items: [
-      { time: "09:30 AM - 10:30 AM", title: "Keynote Speaker", venue:"WCH"},
-      { time: "11:00 AM – 01:00 PM", title: "Spotlight for PY Students", venue: "WCH" },
-      { time: "12:00 PM – 01:00 PM", title: "Middle School — Food Festival", venue: "Across School Courtyard" },
-      { time: "01:30 PM – 02:30 PM", title: "SY Food Festival", venue: "Across School Courtyard" },
-      { time: "03:30 PM – 04:45 PM", title: "KNMA Workshop (for teachers)", venue: "Arts Rooms" },
-      { time: "03:30 PM – 05:00 PM", title: "Spotlight for Parents", venue: "IC MPH" },
-      { time: "05:30 PM – 06:30 PM", title: "Shaam-e-Rang", venue: "WCH" }
+      { time: "09:30 AM - 10:30 AM", title: "Keynote Speaker(Aryaan Misra and Aishwarya Singh)", venue:"WCH, 2nd Floor, Admin Block"},
+      { time: "11:00 AM – 01:00 PM", title: "Spotlight for PY Students", venue: "WCH, 2nd Floor, Admin Block" },
+      { time: "12:00 PM – 01:15 PM", title: "Middle School — Food Festival", venue: "Across School Courtyard" },
+      { time: "01:40 PM – 03:10 PM", title: "SY Food Festival", venue: "Across School Courtyard" },
+      { time: "03:30 PM – 04:45 PM", title: "KNMA Workshop (for teachers)", venue: "Film and Theatre Studio, IC Block, 2nd Floor" },
+      { time: "03:30 PM – 05:00 PM", title: "Spotlight for Parents", venue: "IC MPH, 4th Floor, IC Block" },
+      { time: "05:30 PM – 06:30 PM", title: "Shaam-e-Rang (ft.Mukhtiyar Ali)", venue: "WCH, 2nd Floor, Admin Block" }
     ]
   },
   {
