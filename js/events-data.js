@@ -417,7 +417,7 @@ const KAAFILA_SCHEDULE = [
       { time: "11:00 AM – 02:30 PM", title: "Dress to Express (Day 1) — Costume Making & Embodiment", venue: "Film and Theatre Studio, IC Block, 2nd Floor", note: "Runs in two phases — costume making 11:00 AM – 12:30 PM, then a break, then embodiment 01:00 PM – 02:30 PM.", eventId: "dress-to-express" },
       { time: "12:30 PM – 01:30 PM", title: "One Act Play Discussion", venue: "WCH, 2nd Floor, Admin Block", eventId: "one-act-play" },
       { time: "02:00 PM – 02:30 PM", title: "The Grand Weave (Award Ceremony)", venue: "WCH, 2nd Floor, Admin Block" },
-      { time: "03:45 PM – 04:45 PM", title: "Headline Act (Internal Event)", venue: "WCH, 2nd Floor, Admin Block" }
+      { time: "03:45 PM – 04:45 PM", title: "Headline Act (ft.Darzi)", venue: "WCH, 2nd Floor, Admin Block" }
     ]
   },
   {
