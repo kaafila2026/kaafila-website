@@ -439,17 +439,17 @@ const KAAFILA_SCHEDULE = [
     date: "2026-08-20",
     items: [
       { time: "08:30 AM – 09:00 AM", title: "Registrations", venue: "Admin Block, Main Foyer" },
-      { time: "09:00 AM – 10:00 AM", title: "Anugoonj (Solo Dance)", venue: "WCH", eventId: "classical-solo-dance-competition" },
+      { time: "09:00 AM – 10:00 AM", title: "Anugoonj (Solo Dance)", venue: "WCH, 2nd Floor, Admin Block", eventId: "classical-solo-dance-competition" },
       { time: "09:00 AM – 12:00 PM", title: "Rangrez (Canvas Painting)", venue: "Room 103+104, Middle Block, 3rd Floor", eventId: "canvas-painting" },
-      { time: "09:00 AM – 02:00 PM", title: "Dress to Express (Day 2)", venue: "IC Theatre & Film Studio", eventId: "dress-to-express" },
-      { time: "09:30 AM – 10:00 AM", title: "Chaupaal (Street Play Theme Reveal)", venue: "IC Amphitheatre (Classrooms)", eventId: "improv-nukkad-natak" },
-      { time: "10:00 AM – 11:00 AM", title: "Beat Beyond Borders (Beat Boxing)", venue: "ICMPH 4th floor", eventId: "beat-beyond-borders" },
-      { time: "10:00 AM – 12:00 PM", title: "Weave the Beat (Group Dance)", venue: "WCH", eventId: "souls-in-sync" },
-      { time: "11:30 AM – 01:30 PM", title: "Thahaaka (Stand Up Comedy)", venue: "ICMPH 4th floor", eventId: "standup-workshop" },
-      { time: "12:00 PM – 02:00 PM", title: "Chaupaal (Street Play Performance)", venue: "ICMPH 4th floor", eventId: "improv-nukkad-natak" },
-      { time: "01:30 PM – 02:30 PM", title: "Senior School Food Festival", venue: "Across School Courtyard" },
-      { time: "03:00 PM – 05:00 PM", title: "Clash of Bands (Rock Band)", venue: "WCH", eventId: "clash-of-bands" },
-      { time: "06:00 PM – 06:30 PM", title: "Curtain Drawing (Closing Ceremony)", venue: "WCH" }
+      { time: "09:00 AM – 02:00 PM", title: "Dress to Express (Day 2)", venue: "Film and Theatre Studio, IC Block, 2nd Floor", eventId: "dress-to-express" },
+      { time: "09:30 AM – 10:00 AM", title: "Chaupaal (Street Play Theme Reveal)", venue: "IC Amphitheatre, Ground Floor, IC Block", eventId: "improv-nukkad-natak" },
+      { time: "10:00 AM – 11:00 AM", title: "Beat Beyond Borders (Beat Boxing)", venue: "IC MPH, 4th Floor, IC Block", eventId: "beat-beyond-borders" },
+      { time: "10:00 AM – 12:00 PM", title: "Weave the Beat (Group Dance)", venue: "WCH, 2nd Floor, Admin Block", eventId: "souls-in-sync" },
+      { time: "11:30 AM – 01:30 PM", title: "Thahaaka (Stand Up Comedy)", venue: "IC MPH, 4th Floor, IC Block", eventId: "standup-workshop" },
+      { time: "12:00 PM – 02:00 PM", title: "Chaupaal (Street Play Performance)", venue: "IC MPH, 4th Floor, IC Block", eventId: "improv-nukkad-natak" },
+      { time: "01:30 PM – 02:30 PM", title: "Food Festival", venue: "Across School Courtyard" },
+      { time: "03:00 PM – 05:00 PM", title: "Clash of Bands (Rock Band)", venue: "WCH, 2nd Floor, Admin Block", eventId: "clash-of-bands" },
+      { time: "06:00 PM – 06:30 PM", title: "Curtain Drawing (Closing Ceremony)", venue: "WCH, 2nd Floor, Admin Block" }
     ]
   }
 ];
