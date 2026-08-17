@@ -8,6 +8,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css?v=202608132230">
+<style>
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-2);
+    list-style: none; margin: 0; padding: 0;
+  }
+  .cert-card {
+    padding: var(--space-3);
+    background: var(--band-surface);
+    border: 1px solid var(--band-line);
+    border-left: 3px solid var(--band-heading);
+    border-radius: var(--radius);
+  }
+  .cert-school {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-heading);
+    font-size: 1.02rem; font-weight: 600; line-height: 1.25;
+    color: var(--band-heading);
+  }
+  .cert-form { display: flex; gap: 0.5rem; align-items: stretch; }
+  .cert-input {
+    flex: 1 1 auto; min-width: 0;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-ui); font-size: 0.9rem; letter-spacing: 0.18em;
+    color: var(--band-fg);
+    background: transparent;
+    border: 1px solid var(--band-line-strong);
+    border-radius: var(--radius);
+  }
+  .cert-input::placeholder { letter-spacing: 0.06em; color: var(--band-fg-dim); opacity: 0.7; }
+  .cert-input:focus-visible { outline: 2px solid var(--band-heading); outline-offset: 1px; }
+  .cert-go {
+    flex: none; width: 44px;
+    font-size: 1.1rem; line-height: 1;
+    color: var(--band-bg); background: var(--band-heading);
+    border: 1px solid var(--band-heading); border-radius: var(--radius);
+    transition: opacity 0.2s ease;
+  }
+  .cert-go:hover { opacity: 0.85; }
+  .cert-msg {
+    margin: 0.6rem 0 0; min-height: 1.2em;
+    font-family: var(--font-ui); font-size: 0.78rem;
+    color: var(--band-fg-dim);
+  }
+  .cert-msg.is-error { color: var(--thread-music); font-weight: 500; }
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -27,9 +74,8 @@
       <a href="schedule.html">Schedule</a>
       <a href="tickets.html">Tickets</a>
       <a href="register.html">Register</a>
-    
-      <a href="contact.html">Contact</a>
       <a href="certificates.html" aria-current="page">Certificates</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -40,27 +86,228 @@
       <p class="eyebrow">Kaafila 2026</p>
       <h1 class="section-title" style="font-size: 2.4rem;">Certificates</h1>
       <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
-        Certificates will be uploaded soon.
+        Enter your school's unique 6-digit code and press the arrow to reach
+        your certificates. Certificates will be uploaded soon.
       </p>
     </div>
   </section>
 
   <section class="section" data-band="white" style="padding-top: 2.5rem;">
     <div class="container" style="max-width: 900px;">
-      <!-- Certificate links go here -->
+      <ul class="cert-grid">
+          <li class="cert-card" data-code="482917" data-link="">
+            <p class="cert-school">Gurukul The School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code1">Code for Gurukul The School</label>
+              <input class="cert-input" id="code1" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Gurukul The School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="739104" data-link="">
+            <p class="cert-school">Prakriti School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code2">Code for Prakriti School</label>
+              <input class="cert-input" id="code2" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Prakriti School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="156283" data-link="">
+            <p class="cert-school">Genesis Global School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code3">Code for Genesis Global School</label>
+              <input class="cert-input" id="code3" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Genesis Global School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="904672" data-link="">
+            <p class="cert-school">Ramagya</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code4">Code for Ramagya</label>
+              <input class="cert-input" id="code4" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Ramagya">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="317859" data-link="">
+            <p class="cert-school">Prometheus</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code5">Code for Prometheus</label>
+              <input class="cert-input" id="code5" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Prometheus">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="628401" data-link="">
+            <p class="cert-school">Army Public School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code6">Code for Army Public School</label>
+              <input class="cert-input" id="code6" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Army Public School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="845396" data-link="">
+            <p class="cert-school">Somerville School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code7">Code for Somerville School</label>
+              <input class="cert-input" id="code7" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Somerville School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="273918" data-link="">
+            <p class="cert-school">Heritage Experiential School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code8">Code for Heritage Experiential School</label>
+              <input class="cert-input" id="code8" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Heritage Experiential School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="591047" data-link="">
+            <p class="cert-school">Shiv Nadar School Faridabad</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code9">Code for Shiv Nadar School Faridabad</label>
+              <input class="cert-input" id="code9" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Faridabad">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="760235" data-link="">
+            <p class="cert-school">Pathways School Noida</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code10">Code for Pathways School Noida</label>
+              <input class="cert-input" id="code10" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Pathways School Noida">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="184629" data-link="">
+            <p class="cert-school">Gyanshree Noida</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code11">Code for Gyanshree Noida</label>
+              <input class="cert-input" id="code11" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Gyanshree Noida">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="936174" data-link="">
+            <p class="cert-school">Tagore International School, East of Kailash</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code12">Code for Tagore International School, East of Kailash</label>
+              <input class="cert-input" id="code12" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Tagore International School, East of Kailash">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="502863" data-link="">
+            <p class="cert-school">Mayoor School Noida</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code13">Code for Mayoor School Noida</label>
+              <input class="cert-input" id="code13" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Mayoor School Noida">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="417950" data-link="">
+            <p class="cert-school">Vasant Valley School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code14">Code for Vasant Valley School</label>
+              <input class="cert-input" id="code14" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Vasant Valley School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="689312" data-link="">
+            <p class="cert-school">Pacific World School</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code15">Code for Pacific World School</label>
+              <input class="cert-input" id="code15" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Pacific World School">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="253748" data-link="">
+            <p class="cert-school">Delhi World Public School, Noida Extension</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code16">Code for Delhi World Public School, Noida Extension</label>
+              <input class="cert-input" id="code16" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Delhi World Public School, Noida Extension">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+          <li class="cert-card" data-code="871465" data-link="">
+            <p class="cert-school">Shiv Nadar School Gurgaon</p>
+            <form class="cert-form" novalidate>
+              <label class="visually-hidden" for="code17">Code for Shiv Nadar School Gurgaon</label>
+              <input class="cert-input" id="code17" type="text" inputmode="numeric" maxlength="6"
+                     autocomplete="off" spellcheck="false" placeholder="Code">
+              <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Gurgaon">&rarr;</button>
+            </form>
+            <p class="cert-msg" role="status" aria-live="polite"></p>
+          </li>
+      </ul>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-row" style="padding-top: 1.5rem;">
-    <span>© 2026 Shiv Nadar School · Kaafila</span>
-    <span>Taana Baana — The Timelessness of Humanity</span>
+    <span>&copy; 2026 Shiv Nadar School &middot; Kaafila</span>
+    <span>Taana Baana &mdash; The Timelessness of Humanity</span>
   </div>
 </footer>
 
 <script src="js/events-data.js?v=202608132230"></script>
 <script src="js/main.js?v=202608132230"></script>
+<script>
+// Each card carries its school's code in data-code and its certificate folder
+// in data-link. Paste the link into data-link when it exists; until then a
+// correct code says so rather than going nowhere.
+document.querySelectorAll(".cert-card").forEach(function (card) {
+  var form = card.querySelector(".cert-form");
+  var input = card.querySelector(".cert-input");
+  var msg = card.querySelector(".cert-msg");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var entered = input.value.replace(/\s/g, "");
+    var link = card.dataset.link;
+
+    if (entered !== card.dataset.code) {
+      msg.textContent = "Invalid code.";
+      msg.classList.add("is-error");
+      input.focus();
+      return;
+    }
+    msg.classList.remove("is-error");
+    if (link) {
+      msg.textContent = "Opening your certificates\u2026";
+      window.open(link, "_blank", "noopener");
+    } else {
+      msg.textContent = "Code accepted \u2014 certificates are not uploaded yet.";
+    }
+  });
+});
+</script>
 </body>
 </html>
- 
