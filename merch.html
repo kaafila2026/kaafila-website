@@ -22,9 +22,19 @@
     border-radius: var(--radius);
     overflow: hidden;
   }
-  .merch-shot { display: block; aspect-ratio: 3 / 4; overflow: hidden; background: var(--band-bg); }
+  .merch-shot { display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: var(--band-bg); }
   .merch-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
   .merch-shot:hover img { transform: scale(1.04); }
+  /* For a photo shot sideways. The image is laid out at the frame's swapped
+     dimensions, then turned a quarter clockwise, so it fills the frame upright
+     instead of being squashed into it. */
+  .merch-shot--rot img {
+    position: absolute; top: 50%; left: 50%;
+    width: 133.334%; height: 75%;
+    max-width: none;              /* the global img rule would clamp it back */
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .merch-shot--rot:hover img { transform: translate(-50%, -50%) rotate(90deg) scale(1.04); }
   .merch-body { padding: var(--space-3); display: flex; flex-direction: column; gap: 0.35rem; flex: 1 1 auto; }
   .merch-name {
     margin: 0;
@@ -90,7 +100,7 @@
     <div class="container" style="max-width: 900px;">
       <ul class="merch-grid">
           <li class="merch-card">
-            <a class="merch-shot" href="#" data-merch-link target="_blank" rel="noopener">
+            <a class="merch-shot merch-shot--rot" href="#" data-merch-link target="_blank" rel="noopener">
               <img src="img/IMG_1555.jpg" alt="Tana Bana Notebook — White" loading="lazy">
             </a>
             <div class="merch-body">
