@@ -1,1 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merch | Kaafila 2026 — Shiv Nadar School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=202608132230">
+<style>
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-3);
+    list-style: none; margin: 0; padding: 0;
+  }
+  .merch-card {
+    display: flex; flex-direction: column;
+    background: var(--band-surface);
+    border: 1px solid var(--band-line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .merch-shot { display: block; aspect-ratio: 3 / 4; overflow: hidden; background: var(--band-bg); }
+  .merch-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .merch-shot:hover img { transform: scale(1.04); }
+  .merch-body { padding: var(--space-3); display: flex; flex-direction: column; gap: 0.35rem; flex: 1 1 auto; }
+  .merch-name {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 1.05rem; font-weight: 600; line-height: 1.25;
+    color: var(--band-heading);
+  }
+  .merch-variant {
+    margin: 0;
+    font-family: var(--font-ui); font-size: 0.68rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--band-fg-dim);
+  }
+  .merch-buy {
+    margin-top: auto; padding-top: var(--space-2);
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: var(--font-ui); font-size: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--band-heading);
+  }
+  .merch-buy span { transition: transform 0.2s ease; }
+  .merch-buy:hover span { transform: translateX(4px); }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="wordmark">
+      <img class="wordmark-logo" src="img/kaafila-lockup.png" alt="Kaafila — Shiv Nadar School">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+    </button>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="tickets.html">Tickets</a>
+      <a href="register.html">Register</a>
+      <a href="merch.html" aria-current="page">Merch</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="section" data-band="navy" style="padding-bottom: 2rem;">
+    <div class="container" style="max-width: 900px;">
+      <p class="eyebrow">Kaafila 2026</p>
+      <h1 class="section-title" style="font-size: 2.4rem;">Merch</h1>
+      <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
+        Official Kaafila merchandise, inspired by this year's theme, Taana
+        Baana. Tap any item to fill in the order form.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" data-band="white" style="padding-top: 2.5rem;">
+    <div class="container" style="max-width: 900px;">
+      <ul class="merch-grid">
+          <li class="merch-card">
+            <a class="merch-shot" href="#" data-merch-link target="_blank" rel="noopener">
+              <img src="img/merch-notebook-white.jpg" alt="Tana Bana Notebook — White" loading="lazy">
+            </a>
+            <div class="merch-body">
+              <p class="merch-name">Tana Bana Notebook</p>
+              <p class="merch-variant">White</p>
+              <a class="merch-buy" href="#" data-merch-link target="_blank" rel="noopener">
+                Buy Now <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </li>
+          <li class="merch-card">
+            <a class="merch-shot" href="#" data-merch-link target="_blank" rel="noopener">
+              <img src="img/merch-tote-bag.jpg" alt="Tana Bana Tote Bag" loading="lazy">
+            </a>
+            <div class="merch-body">
+              <p class="merch-name">Tana Bana Tote Bag</p>
+              <a class="merch-buy" href="#" data-merch-link target="_blank" rel="noopener">
+                Buy Now <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </li>
+          <li class="merch-card">
+            <a class="merch-shot" href="#" data-merch-link target="_blank" rel="noopener">
+              <img src="img/merch-notebook-blue.jpg" alt="Tana Bana Notebook — Blue" loading="lazy">
+            </a>
+            <div class="merch-body">
+              <p class="merch-name">Tana Bana Notebook</p>
+              <p class="merch-variant">Blue</p>
+              <a class="merch-buy" href="#" data-merch-link target="_blank" rel="noopener">
+                Buy Now <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row" style="padding-top: 1.5rem;">
+    <span>&copy; 2026 Shiv Nadar School &middot; Kaafila</span>
+    <span>Taana Baana &mdash; The Timelessness of Humanity</span>
+  </div>
+</footer>
+
+<script src="js/events-data.js?v=202608132230"></script>
+<script src="js/main.js?v=202608132230"></script>
+<script>
+// One order form for all three items. Paste the form URL here and every
+// Buy Now button and product image points at it.
+var MERCH_FORM = "";
+
+document.querySelectorAll("[data-merch-link]").forEach(function (el) {
+  if (MERCH_FORM) {
+    el.href = MERCH_FORM;
+  } else {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      alert("The order form isn't open yet — check back shortly.");
+    });
+  }
+});
+</script>
+</body>
+</html>
