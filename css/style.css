@@ -347,7 +347,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
-  .nav-links.is-open { max-height: 320px; }
+    .nav-links.is-open { max-height: 70vh; overflow-y: auto; }
   .nav-links a {
     padding: var(--space-2) var(--space-3);
     display: block;
