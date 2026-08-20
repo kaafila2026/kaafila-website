@@ -54,6 +54,11 @@
     color: var(--band-fg-dim);
   }
   .cert-msg.is-error { color: var(--thread-music); font-weight: 500; }
+  .cert-links { margin: 0.4rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
+  .cert-links a {
+    font-family: var(--font-ui); font-size: 0.8rem;
+    color: var(--band-heading); text-decoration: underline;
+  }
 </style>
 </head>
 <body>
@@ -88,7 +93,7 @@
       <h1 class="section-title" style="font-size: 2.4rem;">Certificates</h1>
       <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
         Enter your school's unique 6-digit code and press the arrow to reach
-        your certificates. Certificates will be uploaded soon.
+        your certificates.
       </p>
     </div>
   </section>
@@ -116,7 +121,7 @@
             </form>
             <p class="cert-msg" role="status" aria-live="polite"></p>
           </li>
-          <li class="cert-card" data-code="156283" data-link="https://drive.google.com/drive/folders/1oH8xmZi_PyuNetebgucPSAlVa_57EZhZ?usp=share_link">
+          <li class="cert-card" data-code="156283" data-link="https://drive.google.com/drive/folders/1Bxfcdf0HnUd9q_eh9Jy7tV2S1C_srKBS?usp=share_link">
             <p class="cert-school">Genesis Global School</p>
             <form class="cert-form" novalidate>
               <label class="visually-hidden" for="code3">Code for Genesis Global School</label>
@@ -126,7 +131,7 @@
             </form>
             <p class="cert-msg" role="status" aria-live="polite"></p>
           </li>
-                  <li class="cert-card" data-code="904672" data-link="https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=share_link">
+          <li class="cert-card" data-code="904672">
             <p class="cert-school">Ramagya</p>
             <form class="cert-form" novalidate>
               <label class="visually-hidden" for="code4">Code for Ramagya</label>
@@ -135,6 +140,11 @@
               <button class="cert-go" type="submit" aria-label="Open certificates for Ramagya">&rarr;</button>
             </form>
             <p class="cert-msg" role="status" aria-live="polite"></p>
+            <!-- More than one folder, so the card lists them instead of opening one. -->
+            <ul class="cert-links" hidden>
+              <li><a href="https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=share_link" target="_blank" rel="noopener">Certificates &mdash; folder 1 &nearr;</a></li>
+              <li><a href="https://drive.google.com/drive/folders/1v_6AUM9mmN6rI79AuNbsC7XQtdfK0L4C?usp=share_link" target="_blank" rel="noopener">Certificates &mdash; folder 2 &nearr;</a></li>
+            </ul>
           </li>
           <li class="cert-card" data-code="317859" data-link="">
             <p class="cert-school">Prometheus</p>
@@ -205,7 +215,8 @@
               <button class="cert-go" type="submit" aria-label="Open certificates for Gyanshree Noida">&rarr;</button>
             </form>
             <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>          <li class="cert-card" data-code="936174" data-link="https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=share_link">
+          </li>
+          <li class="cert-card" data-code="936174" data-link="https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=share_link">
             <p class="cert-school">Tagore International School, East of Kailash</p>
             <form class="cert-form" novalidate>
               <label class="visually-hidden" for="code12">Code for Tagore International School, East of Kailash</label>
@@ -255,7 +266,7 @@
             </form>
             <p class="cert-msg" role="status" aria-live="polite"></p>
           </li>
-                   <li class="cert-card" data-code="871465" data-link="https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=share_link">
+          <li class="cert-card" data-code="871465" data-link="https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=share_link">
             <p class="cert-school">Shiv Nadar School Gurgaon</p>
             <form class="cert-form" novalidate>
               <label class="visually-hidden" for="code17">Code for Shiv Nadar School Gurgaon</label>
@@ -291,8 +302,8 @@
 <script src="js/main.js?v=202608132230"></script>
 <script>
 // Each card carries its school's code in data-code and its certificate folder
-// in data-link. Paste the link into data-link when it exists; until then a
-// correct code says so rather than going nowhere.
+// in data-link. A card with more than one folder uses a <ul class="cert-links">
+// instead, which is revealed rather than opened.
 document.querySelectorAll(".cert-card").forEach(function (card) {
   var form = card.querySelector(".cert-form");
   var input = card.querySelector(".cert-input");
@@ -310,6 +321,12 @@ document.querySelectorAll(".cert-card").forEach(function (card) {
       return;
     }
     msg.classList.remove("is-error");
+    var list = card.querySelector(".cert-links");
+    if (list) {
+      list.hidden = false;
+      msg.textContent = "Code accepted \u2014 your certificate folders are below.";
+      return;
+    }
     if (link) {
       msg.textContent = "Opening your certificates\u2026";
       window.open(link, "_blank", "noopener");
