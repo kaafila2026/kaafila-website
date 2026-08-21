@@ -796,7 +796,7 @@ function updateCardHtml(update) {
   const inner = `
     <span class="update-card-label">${escapeHtml(meta ? meta.label : updateCardLabel(href))}</span>
     <span class="update-card-title">${escapeHtml(update.text)}</span>
-        ${update.note ? `<span class="update-card-note">${escapeHtml(update.note)}</span>` : ""}
+            ${update.note ? `<span class="update-card-note">${update.note.split(" \u00b7 ").map(escapeHtml).join("<br>")}</span>` : ""}
     ${href ? `<span class="update-card-go" aria-hidden="true">&rarr;</span>` : ""}`;
 
   const style = meta ? ` style="--thread: ${meta.thread}"` : "";
