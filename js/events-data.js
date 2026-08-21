@@ -476,52 +476,42 @@ const KAAFILA_UPDATES = [
     note: "Maximum participation — Ramagya School"
   },
   {
-    text: "One Act Play — Best Play",
-    note: "Ramagya School",
-    eventId: "one-act-play"
-  },
-  {
-    text: "One Act Play — Best Interpretation of Theme",
-    note: "Ramagya School",
-    eventId: "one-act-play"
-  },
-  {
-    text: "One Act Play — Best Stage Craft",
-    note: "Tagore International School",
-    eventId: "one-act-play"
-  },
-  {
-    text: "Mixed Media",
-    note: "1st Satya School Gurgaon · 2nd Gurukul The School · 3rd Heritage Experiential School",
-    eventId: "mixed-media"
-  },
-  {
-    text: "Naad Sutra",
+    text: "Naad Sutra (Hindustani Vocals)",
     note: "1st Somerville School · 2nd Ramagya School · 3rd Genesis Global School",
     eventId: "hindustani-vocal-competition"
   },
   {
-    text: "Chaupaal",
+    text: "As You Weave It (One Act Play)",
+    note: "Best Play — Ramagya School · Best Interpretation of Theme — Ramagya School · Best Stage Craft — Tagore International School",
+    eventId: "one-act-play"
+  },
+  {
+    text: "Chaupaal (Street Play)",
     note: "1st Somerville School · 2nd Vidyagyan Leadership Academy · 3rd Gyanshree School Noida",
     eventId: "improv-nukkad-natak"
   },
   {
-    text: "Weave the Beat",
-    note: "1st DPS International Gurgaon · 2nd Jayshree Periwal International School · 3rd Vidyagyan Leadership Academy",
-    eventId: "souls-in-sync"
-  },
-  {
-    text: "Anugoonj",
+    text: "Anugoonj (Classical Solo Dance)",
     note: "1st Ramagya School · 2nd Jayshree Periwal International School · 3rd Army Public School Shankar Vihar",
     eventId: "classical-solo-dance-competition"
   },
   {
-    text: "Rangrez",
+    text: "Weave the Beat (Western Group Dance)",
+    note: "1st DPS International Gurgaon · 2nd Jayshree Periwal International School · 3rd Vidyagyan Leadership Academy",
+    eventId: "souls-in-sync"
+  },
+  {
+    text: "Rooh ka Resha (Mixed Media)",
+    note: "1st Satya School Gurgaon · 2nd Gurukul The School · 3rd Heritage Experiential School",
+    eventId: "mixed-media"
+  },
+  {
+    text: "Rangrez (Canvas Painting)",
     note: "1st Vasant Valley School · 2nd Prakriti School · 3rd Jayshree Periwal International School",
     eventId: "canvas-painting"
   },
   {
-    text: "Clash of Bands",
+    text: "Clash of Bands (Rock Band)",
     note: "1st Somerville School · 2nd Ramagya School · 3rd Mayoor School",
     eventId: "clash-of-bands"
   }
