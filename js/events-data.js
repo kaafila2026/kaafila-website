@@ -472,28 +472,57 @@ const KAAFILA_SCHEDULE = [
    ------------------------------------------------------------------------- */
 const KAAFILA_UPDATES = [
   {
-    text: "Headline Act: Darzi",
-    note: "Tickets are now live",
-    href: "tickets.html"
+    text: "The Kaafila Award",
+    note: "Maximum participation — Ramagya"
   },
   {
-    text: "Shaam-e-Rang ft. Mukhtiyar Ali",
-    note: "Parents' Night · 19 August, 05:30 PM · WCH",
-    href: "tickets.html"
+    text: "One Act Play — Best Play",
+    note: "Ramagya",
+    eventId: "one-act-play"
   },
   {
-    text: "Registrations are open",
-    note: "Twelve events across Music, Dance, Visual Arts and Theatre",
-    href: "register.html"
+    text: "One Act Play — Best Interpretation of Theme",
+    note: "Ramagya",
+    eventId: "one-act-play"
   },
   {
-    text: "Clash of Bands: entries need a video",
-    note: "A 2-minute preliminary practice video goes in with your entry",
+    text: "One Act Play — Best Stage Craft",
+    note: "Tagore International",
+    eventId: "one-act-play"
+  },
+  {
+    text: "Mixed Media",
+    note: "1st Satya · 2nd Gurukul · 3rd Heritage",
+    eventId: "mixed-media"
+  },
+  {
+    text: "Naad Sutra",
+    note: "1st Somerville · 2nd Ramagya · 3rd Genesis Global",
+    eventId: "hindustani-vocal-competition"
+  },
+  {
+    text: "Chaupaal",
+    note: "1st Somerville · 2nd Vidyagyan · 3rd Gyanshree",
+    eventId: "improv-nukkad-natak"
+  },
+  {
+    text: "Weave the Beat",
+    note: "1st DPS International Gurgaon · 2nd Jayshree Periwal International School · 3rd Vidyagyan",
+    eventId: "souls-in-sync"
+  },
+  {
+    text: "Anugoonj",
+    note: "1st Ramagya · 2nd Jayshree Periwal International School · 3rd Army Public School Shankar Vihar",
+    eventId: "classical-solo-dance-competition"
+  },
+  {
+    text: "Rangrez",
+    note: "1st Vasant Valley · 2nd Prakriti · 3rd Jayshree Periwal",
+    eventId: "canvas-painting"
+  },
+  {
+    text: "Clash of Bands",
+    note: "1st Somerville · 2nd Ramagya · 3rd Mayoor",
     eventId: "clash-of-bands"
-  },
-  {
-    text: "Full schedule is up",
-    note: "Three days · 18–20 August · every timing and venue",
-    href: "schedule.html"
   }
 ];
