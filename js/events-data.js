@@ -473,56 +473,56 @@ const KAAFILA_SCHEDULE = [
 const KAAFILA_UPDATES = [
   {
     text: "The Kaafila Award",
-    note: "Maximum participation — Ramagya"
+    note: "Maximum participation — Ramagya School"
   },
   {
     text: "One Act Play — Best Play",
-    note: "Ramagya",
+    note: "Ramagya School",
     eventId: "one-act-play"
   },
   {
     text: "One Act Play — Best Interpretation of Theme",
-    note: "Ramagya",
+    note: "Ramagya School",
     eventId: "one-act-play"
   },
   {
     text: "One Act Play — Best Stage Craft",
-    note: "Tagore International",
+    note: "Tagore International School",
     eventId: "one-act-play"
   },
   {
     text: "Mixed Media",
-    note: "1st Satya · 2nd Gurukul · 3rd Heritage",
+    note: "1st Satya School Gurgaon · 2nd Gurukul The School · 3rd Heritage Experiential School",
     eventId: "mixed-media"
   },
   {
     text: "Naad Sutra",
-    note: "1st Somerville · 2nd Ramagya · 3rd Genesis Global",
+    note: "1st Somerville School · 2nd Ramagya School · 3rd Genesis Global School",
     eventId: "hindustani-vocal-competition"
   },
   {
     text: "Chaupaal",
-    note: "1st Somerville · 2nd Vidyagyan · 3rd Gyanshree",
+    note: "1st Somerville School · 2nd Vidyagyan Leadership Academy · 3rd Gyanshree School Noida",
     eventId: "improv-nukkad-natak"
   },
   {
     text: "Weave the Beat",
-    note: "1st DPS International Gurgaon · 2nd Jayshree Periwal International School · 3rd Vidyagyan",
+    note: "1st DPS International Gurgaon · 2nd Jayshree Periwal International School · 3rd Vidyagyan Leadership Academy",
     eventId: "souls-in-sync"
   },
   {
     text: "Anugoonj",
-    note: "1st Ramagya · 2nd Jayshree Periwal International School · 3rd Army Public School Shankar Vihar",
+    note: "1st Ramagya School · 2nd Jayshree Periwal International School · 3rd Army Public School Shankar Vihar",
     eventId: "classical-solo-dance-competition"
   },
   {
     text: "Rangrez",
-    note: "1st Vasant Valley · 2nd Prakriti · 3rd Jayshree Periwal",
+    note: "1st Vasant Valley School · 2nd Prakriti School · 3rd Jayshree Periwal International School",
     eventId: "canvas-painting"
   },
   {
     text: "Clash of Bands",
-    note: "1st Somerville · 2nd Ramagya · 3rd Mayoor",
+    note: "1st Somerville School · 2nd Ramagya School · 3rd Mayoor School",
     eventId: "clash-of-bands"
   }
 ];
