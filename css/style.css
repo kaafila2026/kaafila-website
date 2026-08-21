@@ -806,6 +806,8 @@ a.update-card:focus-visible { background: var(--band-surface); }
   margin-top: 0.4rem;
   color: var(--band-fg-dim);
   font-size: 0.92rem;
+  line-height: 1.7;
+}
 }
 .update-card-go {
   display: block;
