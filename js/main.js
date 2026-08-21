@@ -791,7 +791,7 @@ function updateCardHtml(update) {
   const meta = event && typeof KAAFILA_CATEGORIES !== "undefined"
     ? KAAFILA_CATEGORIES[event.category]
     : null;
-  const href = update.href || (update.eventId ? `event.html?id=${encodeURIComponent(update.eventId)}` : null);
+   const href = update.href || null;
 
   const inner = `
     <span class="update-card-label">${escapeHtml(meta ? meta.label : updateCardLabel(href))}</span>
