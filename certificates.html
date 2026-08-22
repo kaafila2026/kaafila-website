@@ -1,78 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificates | Kaafila 2026 — Shiv Nadar School</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=202608132230">
-<style>
-  .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-2);
-    list-style: none; margin: 0; padding: 0;
-  }
-  .cert-card {
-    padding: var(--space-3);
-    background: var(--band-surface);
-    border: 1px solid var(--band-line);
-    border-left: 3px solid var(--band-heading);
-    border-radius: var(--radius);
-  }
-  .cert-school {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-heading);
-    font-size: 1.02rem; font-weight: 600; line-height: 1.25;
-    color: var(--band-heading);
-  }
-  .cert-form { display: flex; gap: 0.5rem; align-items: stretch; }
-  .cert-input {
-    flex: 1 1 auto; min-width: 0;
-    padding: 0.6rem 0.8rem;
-    font-family: var(--font-ui); font-size: 0.9rem; letter-spacing: 0.18em;
-    color: var(--band-fg);
-    background: transparent;
-    border: 1px solid var(--band-line-strong);
-    border-radius: var(--radius);
-  }
-  .cert-input::placeholder { letter-spacing: 0.06em; color: var(--band-fg-dim); opacity: 0.7; }
-  .cert-input:focus-visible { outline: 2px solid var(--band-heading); outline-offset: 1px; }
-  .cert-go {
-    flex: none; width: 44px;
-    font-size: 1.1rem; line-height: 1;
-    color: var(--band-bg); background: var(--band-heading);
-    border: 1px solid var(--band-heading); border-radius: var(--radius);
-    transition: opacity 0.2s ease;
-  }
-  .cert-go:hover { opacity: 0.85; }
-  .cert-msg {
-    margin: 0.6rem 0 0; min-height: 1.2em;
-    font-family: var(--font-ui); font-size: 0.78rem;
-    color: var(--band-fg-dim);
-  }
-  .cert-msg.is-error { color: var(--thread-music); font-weight: 500; }
-  .cert-links { margin: 0.4rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.35rem; }
-  .cert-links a {
-    font-family: var(--font-ui); font-size: 0.8rem;
-    color: var(--band-heading); text-decoration: underline;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Certificates | Kaafila 2026 — Shiv Nadar School</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css?v=202608132230">
+
+  <style>
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cert-card {
+      padding: var(--space-3);
+      background: var(--band-surface);
+      border: 1px solid var(--band-line);
+      border-left: 3px solid var(--band-heading);
+      border-radius: var(--radius);
+    }
+
+    .cert-school {
+      margin: 0 0 var(--space-2);
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--band-heading);
+    }
+
+    .cert-form {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+
+    .cert-input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.65rem 0.8rem;
+
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+
+      color: var(--band-fg);
+      background: transparent;
+
+      border: 1px solid var(--band-line-strong);
+      border-radius: var(--radius);
+    }
+
+    .cert-input::placeholder {
+      letter-spacing: 0.05em;
+      color: var(--band-fg-dim);
+    }
+
+    .cert-input:focus-visible {
+      outline: 2px solid var(--band-heading);
+      outline-offset: 1px;
+    }
+
+    .cert-go {
+      flex: none;
+      width: 46px;
+
+      color: var(--band-bg);
+      background: var(--band-heading);
+
+      border: 1px solid var(--band-heading);
+      border-radius: var(--radius);
+
+      cursor: pointer;
+      font-size: 1.1rem;
+
+      transition: opacity 0.2s ease, transform 0.15s ease;
+    }
+
+    .cert-go:hover {
+      opacity: 0.85;
+      transform: translateX(2px);
+    }
+
+    .cert-msg {
+      margin: 0.65rem 0 0;
+      min-height: 1.2em;
+
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+
+      color: var(--band-fg-dim);
+    }
+
+    .cert-msg.is-error {
+      color: var(--thread-music);
+      font-weight: 500;
+    }
+
+    .cert-msg.is-success {
+      color: var(--band-heading);
+      font-weight: 500;
+    }
+
+    .cert-links {
+      display: grid;
+      gap: 0.5rem;
+
+      margin: 0.8rem 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .cert-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0.65rem 0.8rem;
+
+      color: var(--band-heading);
+      text-decoration: none;
+
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+
+      border: 1px solid var(--band-line);
+      border-radius: var(--radius);
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease;
+    }
+
+    .cert-links a:hover {
+      background: var(--band-surface);
+      border-color: var(--band-heading);
+      transform: translateX(2px);
+    }
+
+    .event-name {
+      flex: 1;
+    }
+
+    .event-arrow {
+      margin-left: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .cert-card.unlocked {
+      border-left-width: 4px;
+    }
+
+    .cert-card.unlocked .cert-input {
+      border-color: var(--band-heading);
+    }
+
+    @media (max-width: 600px) {
+
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-form {
+        gap: 0.4rem;
+      }
+
+      .cert-go {
+        width: 42px;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<a href="#main-content" class="skip-link">
+  Skip to main content
+</a>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
 <header class="site-header">
+
   <div class="container nav-row">
+
     <a href="index.html" class="wordmark">
-      <img class="wordmark-logo" src="img/kaafila-lockup.png" alt="Kaafila — Shiv Nadar School">
+
+      <img
+        class="wordmark-logo"
+        src="img/kaafila-lockup.png"
+        alt="Kaafila — Shiv Nadar School"
+      >
+
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="18" y2="5"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="2" y1="15" x2="18" y2="15"/></svg>
+
+    <button
+      class="nav-toggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+      >
+
+        <line x1="2" y1="5" x2="18" y2="5"/>
+        <line x1="2" y1="10" x2="18" y2="10"/>
+        <line x1="2" y1="15" x2="18" y2="15"/>
+
+      </svg>
+
     </button>
-    <nav class="nav-links" id="primary-nav" aria-label="Primary">
+
+
+    <nav
+      class="nav-links"
+      id="primary-nav"
+      aria-label="Primary"
+    >
+
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="gallery.html">Gallery</a>
@@ -82,260 +260,682 @@
       <a href="merch.html">Merch</a>
       <a href="certificates.html" aria-current="page">Certificates</a>
       <a href="contact.html">Contact</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
 <main id="main-content">
-  <section class="section" data-band="navy" style="padding-bottom: 2rem;">
-    <div class="container" style="max-width: 900px;">
-      <p class="eyebrow">Kaafila 2026</p>
-      <h1 class="section-title" style="font-size: 2.4rem;">Certificates</h1>
-      <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
-        Enter your school's unique 6-digit code and press the arrow to reach
+
+
+  <section
+    class="section"
+    data-band="navy"
+    style="padding-bottom: 2rem;"
+  >
+
+    <div
+      class="container"
+      style="max-width: 900px;"
+    >
+
+      <p class="eyebrow">
+        Kaafila 2026
+      </p>
+
+      <h1
+        class="section-title"
+        style="font-size: 2.4rem;"
+      >
+        Certificates
+      </h1>
+
+      <p
+        class="prose"
+        style="
+          margin-top: 1rem;
+          color: var(--band-fg-dim);
+        "
+      >
+        Enter your school's unique 6-digit access code to access
         your certificates.
       </p>
+
     </div>
+
   </section>
 
-  <section class="section" data-band="white" style="padding-top: 2.5rem;">
-    <div class="container" style="max-width: 900px;">
-      <ul class="cert-grid">
-          <li class="cert-card" data-code="482917" data-link="">
-            <p class="cert-school">Gurukul The School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code1">Code for Gurukul The School</label>
-              <input class="cert-input" id="code1" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Gurukul The School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="739104" data-link="">
-            <p class="cert-school">Prakriti School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code2">Code for Prakriti School</label>
-              <input class="cert-input" id="code2" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Prakriti School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="156283" data-link="">
-            <p class="cert-school">Genesis Global School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code3">Code for Genesis Global School</label>
-              <input class="cert-input" id="code3" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Genesis Global School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="904672">
-            <p class="cert-school">Ramagya</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code4">Code for Ramagya</label>
-              <input class="cert-input" id="code4" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Ramagya">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-            <!-- More than one folder, so the card lists them instead of opening one. -->
-            <ul class="cert-links" hidden>
-              <li><a href="https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=share_link" target="_blank" rel="noopener">Certificates &mdash; folder 1 &nearr;</a></li>
-              
-            </ul>
-          </li>
-          <li class="cert-card" data-code="317859" data-link="">
-            <p class="cert-school">Prometheus</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code5">Code for Prometheus</label>
-              <input class="cert-input" id="code5" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Prometheus">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="628401" data-link="">
-            <p class="cert-school">Army Public School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code6">Code for Army Public School</label>
-              <input class="cert-input" id="code6" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Army Public School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="845396" data-link="">
-            <p class="cert-school">Somerville School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code7">Code for Somerville School</label>
-              <input class="cert-input" id="code7" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Somerville School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="273918" data-link="">
-            <p class="cert-school">Heritage Experiential School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code8">Code for Heritage Experiential School</label>
-              <input class="cert-input" id="code8" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Heritage Experiential School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="591047" data-link="">
-            <p class="cert-school">Shiv Nadar School Faridabad</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code9">Code for Shiv Nadar School Faridabad</label>
-              <input class="cert-input" id="code9" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Faridabad">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="760235" data-link="">
-            <p class="cert-school">Pathways School Noida</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code10">Code for Pathways School Noida</label>
-              <input class="cert-input" id="code10" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Pathways School Noida">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="184629" data-link="">
-            <p class="cert-school">Gyanshree Noida</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code11">Code for Gyanshree Noida</label>
-              <input class="cert-input" id="code11" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Gyanshree Noida">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="936174" data-link="https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=share_link">
-            <p class="cert-school">Tagore International School, East of Kailash</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code12">Code for Tagore International School, East of Kailash</label>
-              <input class="cert-input" id="code12" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Tagore International School, East of Kailash">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="502863" data-link="">
-            <p class="cert-school">Mayoor School Noida</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code13">Code for Mayoor School Noida</label>
-              <input class="cert-input" id="code13" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Mayoor School Noida">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="417950" data-link="">
-            <p class="cert-school">Vasant Valley School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code14">Code for Vasant Valley School</label>
-              <input class="cert-input" id="code14" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Vasant Valley School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="689312" data-link="">
-            <p class="cert-school">Pacific World School</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code15">Code for Pacific World School</label>
-              <input class="cert-input" id="code15" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Pacific World School">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="253748" data-link="">
-            <p class="cert-school">Delhi World Public School, Noida Extension</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code16">Code for Delhi World Public School, Noida Extension</label>
-              <input class="cert-input" id="code16" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Delhi World Public School, Noida Extension">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="871465" data-link="https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=share_link">
-            <p class="cert-school">Shiv Nadar School Gurgaon</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code17">Code for Shiv Nadar School Gurgaon</label>
-              <input class="cert-input" id="code17" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Gurgaon">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-          <li class="cert-card" data-code="364852" data-link="https://drive.google.com/drive/folders/1rah7s-U-Oy6Q8mBdhJXgkmAeMYgVICUQ?usp=share_link">
-            <p class="cert-school">KR Mangalam School GK2</p>
-            <form class="cert-form" novalidate>
-              <label class="visually-hidden" for="code18">Code for KR Mangalam School GK2</label>
-              <input class="cert-input" id="code18" type="text" inputmode="numeric" maxlength="6"
-                     autocomplete="off" spellcheck="false" placeholder="Code">
-              <button class="cert-go" type="submit" aria-label="Open certificates for KR Mangalam School GK2">&rarr;</button>
-            </form>
-            <p class="cert-msg" role="status" aria-live="polite"></p>
-          </li>
-      </ul>
+
+  <!-- =======================================================
+       SCHOOL CARDS
+       ======================================================= -->
+
+  <section
+    class="section"
+    data-band="white"
+    style="padding-top: 2.5rem;"
+  >
+
+    <div
+      class="container"
+      style="max-width: 1100px;"
+    >
+
+      <ul class="cert-grid" id="certificateGrid"></ul>
+
     </div>
+
   </section>
+
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
 <footer class="site-footer">
-  <div class="container footer-row" style="padding-top: 1.5rem;">
-    <span>&copy; 2026 Shiv Nadar School &middot; Kaafila</span>
-    <span>Taana Baana &mdash; The Timelessness of Humanity</span>
+
+  <div
+    class="container footer-row"
+    style="padding-top: 1.5rem;"
+  >
+
+    <span>
+      &copy; 2026 Shiv Nadar School &middot; Kaafila
+    </span>
+
+    <span>
+      Taana Baana &mdash; The Timelessness of Humanity
+    </span>
+
   </div>
+
 </footer>
+
 
 <script src="js/events-data.js?v=202608132230"></script>
 <script src="js/main.js?v=202608132230"></script>
+
+
+<!-- =========================================================
+     CERTIFICATE DATA
+     ========================================================= -->
+
 <script>
-// Each card carries its school's code in data-code and its certificate folder
-// in data-link. A card with more than one folder uses a <ul class="cert-links">
-// instead, which is revealed rather than opened.
-document.querySelectorAll(".cert-card").forEach(function (card) {
-  var form = card.querySelector(".cert-form");
-  var input = card.querySelector(".cert-input");
-  var msg = card.querySelector(".cert-msg");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var entered = input.value.replace(/\s/g, "");
-    var link = card.dataset.link;
+const certificateData = {
 
-    if (entered !== card.dataset.code) {
-      msg.textContent = "Invalid code.";
-      msg.classList.add("is-error");
+  "Gurukul The School": {
+    code: "482917",
+    folders: [
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/1oH8xmZi_PyuNetebgucPSAlVa_57EZhZ?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1HymSwa9Tjds6FsKkqsTQsofIulP0C_tI?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Prakriti School": {
+    code: "739104",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1tbzAREP4BU2y7bMMCotvsYhV_RAk2rfm?usp=share_link"
+      },
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/1bHtiOOe452y6fBJCMn_MyUUgfJo8udnf?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Genesis Global School": {
+    code: "156283",
+    folders: [
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/1Bxfcdf0HnUd9q_eh9Jy7tV2S1C_srKBS?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Ramagya": {
+    code: "904672",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1lewc8M1ja-16uFqdLg9sVjwxEIAR18nZ?usp=share_link"
+      },
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/1VkhxLJQ6EWFQz7Oq-amTay0D9gR2iXsU?usp=share_link"
+      },
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/1v_6AUM9mmN6rI79AuNbsC7XQtdfK0L4C?usp=sharing"
+      },
+      {
+        event: "One Act Play'26",
+        url: "https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=sharing"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1tc6DnPWs9mDSWK--HyJs16J3hMtRs2H7?usp=sharing"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1_Pfynis9ZP6PCPeNbTQEriaCEq8Lm57K?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Army Public School": {
+    code: "628401",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1n3mMiCLy-BEmAX98UsFoDgGX7GAYAm02?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1vlqaUn0pHFgH7m2exC1JgpzBBr6AeNM4?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Somerville School": {
+    code: "845396",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/13KITIQUxD-EoTWd2gLCYGbeh1DHjbLJD?usp=share_link"
+      },
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/17uwR-ttkx6HoGQ4aPBvUcJLKoWoqTf5v?usp=share_link"
+      },
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/1OuxbVuLqQPDIZaPfij8d6YT_zeTfeilF?usp=sharing"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1zluOmiM1CRdDwTUKOhOYpb7_7efYVw9t?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Heritage Experiential School": {
+    code: "273918",
+    folders: []
+  },
+
+
+  "Shiv Nadar School Faridabad": {
+    code: "591047",
+    folders: [
+      {
+        event: "Clash Of Bands'26",
+        url: "https://drive.google.com/drive/folders/1Pf-IzPuZG963oPeLTb_iRiONSkcYybOU?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1d94xdHxfTsZO1Dg8di1DrnjEjQ7Eu2E5?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Pathways School Noida": {
+    code: "760235",
+    folders: []
+  },
+
+
+  "Gyanshree Noida": {
+    code: "184629",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/10y72WJRgS-c0FfprkMqcejL8PWCKWIw9?usp=share_link"
+      },
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/1gsH75GMojW8U_BPFINS1eCweKmTfypiF?usp=share_link"
+      },
+      {
+        event: "Naad Sutra'26",
+        url: "https://drive.google.com/drive/folders/13plYlnhf1G2wFa1GJWnC3Kzk1xPOUaCB?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1yiIp7OddeEWb3QvkzJObK9sZy2-qclD5?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Tagore International School, East of Kailash": {
+    code: "936174",
+    folders: [
+      {
+        event: "One Act Play'26",
+        url: "https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Mayoor School Noida": {
+    code: "502863",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1FkQryFQ5H7bXNOP-4FjYB4-BV1lo8xX4?usp=share_link"
+      },
+      {
+        event: "Clash Of Bands'26",
+        url: "https://drive.google.com/drive/folders/1btrgmkVqd0xk0qk54rHB474mvl-gQ2jm?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1Jn-2AEjQcsnjiA8PIiUvOGT3Yddis8PH?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Vasant Valley School": {
+    code: "417950",
+    folders: [
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1L83IVTTRWgM7QCi51PS2U3c1cJjGiTgz?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Delhi World Public School, Noida Extension": {
+    code: "253748",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1VTVTJgJfefHcEDsE3HY8yowlUYERlBto?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Shiv Nadar School Gurgaon": {
+    code: "871465",
+    folders: [
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/1krO9_joih-e7gpZOr41GvPU5HEvmftRB?usp=share_link"
+      },
+      {
+        event: "One Act Play'26",
+        url: "https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=sharing"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link"
+      }
+    ]
+  },
+
+
+  "KR Mangalam School GK2": {
+    code: "364852",
+    folders: [
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/1MbVZYOeVwcjO09ohk1O9Top_9UhhdFwH?usp=share_link"
+      },
+      {
+        event: "One Act Play'26",
+        url: "https://drive.google.com/drive/folders/1rah7s-U-Oy6Q8mBdhJXgkmAeMYgVICUQ?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/11jehFxENBza34hkdkixflR_B_i2IeOuF?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Satya School Gurgaon": {
+    code: "518294",
+    folders: [
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1nVxoc1sY5xrh2UBeUCmDUTk5ULdnj04x?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Jaypee Public School": {
+    code: "673019",
+    folders: [
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/1R9BHJd5UDnYaxUOdMsN6T2SsAAlmUp-H?usp=share_link"
+      }
+    ]
+  },
+
+
+  "DPS International Gurgaon": {
+    code: "829406",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1_gti2Ms3pLH_4gaqiR5zV-2SjvYFy9Pb?usp=share_link"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1HKZCmer8T77-fmwe9x9Mc4yPd5vUsutR?usp=share_link"
+      }
+    ]
+  },
+
+
+  "Aster Public School": {
+    code: "145738",
+    folders: []
+  },
+
+
+  "Jayshree Periwal International School": {
+    code: "906271",
+    folders: [
+      {
+        event: "Anugoonj",
+        url: "https://drive.google.com/drive/folders/1wgey1-8ebRb3J7tnI39gfTQ_Gy3pzc2N?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/12nad9_QU64eshvihnTXDgYXBvHTgGgQD?usp=sharing"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1t_Fu814LEkwRDvL5M5Q70m2_zdmvvENN?usp=sharing"
+      }
+    ]
+  },
+
+
+  "Vidyagyan Leadership Academy": {
+    code: "738591",
+    folders: [
+      {
+        event: "Chaupaal'26",
+        url: "https://drive.google.com/drive/folders/195NrZ6J2nAxyFLt6A4tOPfbzxcH6ImNG?usp=share_link"
+      },
+      {
+        event: "Rangrez'26",
+        url: "https://drive.google.com/drive/folders/1Q6FjrAL8SNCF5NiZYeHWYAOOyoEXd6DU?usp=sharing"
+      },
+      {
+        event: "Weave The Beat'26",
+        url: "https://drive.google.com/drive/folders/1A-aT8x3BMMhuoadcUJpGnv1FCynTeNLf?usp=sharing"
+      }
+    ]
+  }
+
+};
+
+
+/* =========================================================
+   BUILD ALL SCHOOL CARDS
+   ========================================================= */
+
+const grid = document.getElementById("certificateGrid");
+
+Object.entries(certificateData).forEach(function ([schoolName, data], index) {
+
+  const card = document.createElement("li");
+
+  card.className = "cert-card";
+
+  card.dataset.school = schoolName;
+
+
+  card.innerHTML = `
+
+    <p class="cert-school">
+      ${schoolName}
+    </p>
+
+    <form class="cert-form" novalidate>
+
+      <label
+        class="visually-hidden"
+        for="certificate-code-${index}"
+      >
+        Code for ${schoolName}
+      </label>
+
+      <input
+        class="cert-input"
+        id="certificate-code-${index}"
+        type="text"
+        inputmode="numeric"
+        maxlength="6"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="6-digit code"
+      >
+
+      <button
+        class="cert-go"
+        type="submit"
+        aria-label="Open certificates for ${schoolName}"
+      >
+        &rarr;
+      </button>
+
+    </form>
+
+    <p
+      class="cert-msg"
+      role="status"
+      aria-live="polite"
+    ></p>
+
+    <ul
+      class="cert-links"
+      hidden
+    ></ul>
+
+  `;
+
+
+  grid.appendChild(card);
+
+
+  const form = card.querySelector(".cert-form");
+
+  const input = card.querySelector(".cert-input");
+
+  const message = card.querySelector(".cert-msg");
+
+  const linksList = card.querySelector(".cert-links");
+
+
+  /* =======================================================
+     FORM SUBMISSION
+     ======================================================= */
+
+  form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+
+    const enteredCode =
+      input.value.replace(/\D/g, "");
+
+
+    /* Reset previous state */
+
+    message.textContent = "";
+
+    message.classList.remove("is-error");
+
+    message.classList.remove("is-success");
+
+    linksList.innerHTML = "";
+
+    linksList.hidden = true;
+
+    card.classList.remove("unlocked");
+
+
+    /* =====================================================
+       CHECK CODE
+       ===================================================== */
+
+    if (enteredCode !== data.code) {
+
+      message.textContent =
+        "Invalid code. Please check your school's 6-digit access code.";
+
+      message.classList.add("is-error");
+
       input.focus();
+
       return;
+
     }
-    msg.classList.remove("is-error");
-    var list = card.querySelector(".cert-links");
-    if (list) {
-      list.hidden = false;
-      msg.textContent = "Code accepted \u2014 your certificate folders are below.";
+
+
+    /* =====================================================
+       CODE IS CORRECT
+       ===================================================== */
+
+    card.classList.add("unlocked");
+
+
+    message.classList.add("is-success");
+
+
+    /* =====================================================
+       NO CERTIFICATE LINKS
+       ===================================================== */
+
+    if (!data.folders || data.folders.length === 0) {
+
+      message.textContent =
+        "Code accepted — certificates are not uploaded yet.";
+
       return;
+
     }
-    if (link) {
-      msg.textContent = "Opening your certificates\u2026";
-      window.open(link, "_blank", "noopener");
-    } else {
-      msg.textContent = "Code accepted \u2014 certificates are not uploaded yet.";
-    }
+
+
+    /* =====================================================
+       CREATE EVENT LINKS
+       ===================================================== */
+
+    data.folders.forEach(function (folder) {
+
+      const li = document.createElement("li");
+
+      const link = document.createElement("a");
+
+      const name = document.createElement("span");
+
+      const arrow = document.createElement("span");
+
+
+      name.className = "event-name";
+
+      name.textContent =
+        folder.event + " — View Certificates";
+
+
+      arrow.className = "event-arrow";
+
+      arrow.innerHTML = "&nearr;";
+
+
+      link.href = folder.url;
+
+      link.target = "_blank";
+
+      link.rel = "noopener noreferrer";
+
+
+      link.appendChild(name);
+
+      link.appendChild(arrow);
+
+      li.appendChild(link);
+
+      linksList.appendChild(li);
+
+    });
+
+
+    linksList.hidden = false;
+
+
+    message.textContent =
+      "Code accepted — select an event below to view your certificates.";
+
   });
+
+
+  /* =======================================================
+     ONLY ALLOW NUMBERS IN CODE FIELD
+     ======================================================= */
+
+  input.addEventListener("input", function () {
+
+    this.value =
+      this.value
+        .replace(/\D/g, "")
+        .slice(0, 6);
+
+  });
+
 });
+
+
 </script>
+
+
 </body>
 </html>
-          
