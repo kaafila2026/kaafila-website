@@ -1,666 +1,502 @@
-!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Certificates | Kaafila 2026 — Shiv Nadar School</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="css/style.css?v=202608132230">
-
 <style>
-  .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--space-2);
-    list-style: none; margin: 0; padding: 0;
-  }
-
-  .cert-card {
-    padding: var(--space-3);
-    background: var(--band-surface);
-    border: 1px solid var(--band-line);
-    border-left: 3px solid var(--band-heading);
-    border-radius: var(--radius);
-  }
-
-  .cert-school {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-heading);
-    font-size: 1.02rem; font-weight: 600; line-height: 1.25;
-    color: var(--band-heading);
-  }
-
-  .cert-form { display: flex; gap: 0.5rem; align-items: stretch; }
-
-  .cert-input {
-    flex: 1 1 auto; min-width: 0;
-    padding: 0.6rem 0.8rem;
-    font-family: var(--font-ui); font-size: 0.9rem; letter-spacing: 0.18em;
-    color: var(--band-fg);
-    background: transparent;
-    border: 1px solid var(--band-line-strong);
-    border-radius: var(--radius);
-  }
-
-  .cert-input::placeholder {
-    letter-spacing: 0.06em;
-    color: var(--band-fg-dim);
-    opacity: 0.7;
-  }
-
-  .cert-input:focus-visible {
-    outline: 2px solid var(--band-heading);
-    outline-offset: 1px;
-  }
-
-  .cert-go {
-    flex: none; width: 44px;
-    font-size: 1.1rem; line-height: 1;
-    color: var(--band-bg); background: var(--band-heading);
-    border: 1px solid var(--band-heading);
-    border-radius: var(--radius);
-    transition: opacity 0.2s ease;
-  }
-
-  .cert-go:hover { opacity: 0.85; }
-
-  .cert-msg {
-    margin: 0.6rem 0 0; min-height: 1.2em;
-    font-family: var(--font-ui); font-size: 0.78rem;
-    color: var(--band-fg-dim);
-  }
-
-  .cert-msg.is-error {
-    color: var(--thread-music);
-    font-weight: 500;
-  }
-
-  .cert-links {
-    margin: 0.4rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  .cert-links a {
-    font-family: var(--font-ui);
-    font-size: 0.8rem;
-    color: var(--band-heading);
-    text-decoration: underline;
-  }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-2);
+    list-style: none; margin: 0; padding: 0;
+  }
+  .cert-card {
+    padding: var(--space-3);
+    background: var(--band-surface);
+    border: 1px solid var(--band-line);
+    border-left: 3px solid var(--band-heading);
+    border-radius: var(--radius);
+  }
+  .cert-school {
+    margin: 0 0 var(--space-2);
+    font-family: var(--font-heading);
+    font-size: 1.02rem; font-weight: 600; line-height: 1.25;
+    color: var(--band-heading);
+  }
+  .cert-form { display: flex; gap: 0.5rem; align-items: stretch; }
+  .cert-input {
+    flex: 1 1 auto; min-width: 0;
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-ui); font-size: 0.9rem; letter-spacing: 0.18em;
+    color: var(--band-fg);
+    background: transparent;
+    border: 1px solid var(--band-line-strong);
+    border-radius: var(--radius);
+  }
+  .cert-input::placeholder {
+    letter-spacing: 0.06em;
+    color: var(--band-fg-dim);
+    opacity: 0.7;
+  }
+  .cert-input:focus-visible {
+    outline: 2px solid var(--band-heading);
+    outline-offset: 1px;
+  }
+  .cert-go {
+    flex: none; width: 44px;
+    font-size: 1.1rem; line-height: 1;
+    color: var(--band-bg); background: var(--band-heading);
+    border: 1px solid var(--band-heading);
+    border-radius: var(--radius);
+    transition: opacity 0.2s ease;
+  }
+  .cert-go:hover { opacity: 0.85; }
+  .cert-msg {
+    margin: 0.6rem 0 0; min-height: 1.2em;
+    font-family: var(--font-ui); font-size: 0.78rem;
+    color: var(--band-fg-dim);
+  }
+  .cert-msg.is-error {
+    color: var(--thread-music);
+    font-weight: 500;
+  }
+  .cert-links {
+    margin: 0.4rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .cert-links a {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    color: var(--band-heading);
+    text-decoration: underline;
+  }
 </style>
-
 </head>
-
 <body>
-
 <a href="#main-content" class="skip-link">Skip to main content</a>
-
 <header class="site-header">
-  <div class="container nav-row">
-
+  <div class="container nav-row">
 ```
 <a href="index.html" class="wordmark">
-  <img class="wordmark-logo" src="img/kaafila-lockup.png" alt="Kaafila — Shiv Nadar School">
+  <img class="wordmark-logo" src="img/kaafila-lockup.png" alt="Kaafila — Shiv Nadar School">
 </a>
-
 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-    <line x1="2" y1="5" x2="18" y2="5"/>
-    <line x1="2" y1="10" x2="18" y2="10"/>
-    <line x1="2" y1="15" x2="18" y2="15"/>
-  </svg>
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2" y1="5" x2="18" y2="5"/>
+    <line x1="2" y1="10" x2="18" y2="10"/>
+    <line x1="2" y1="15" x2="18" y2="15"/>
+  </svg>
 </button>
-
 <nav class="nav-links" id="primary-nav" aria-label="Primary">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="schedule.html">Schedule</a>
-  <a href="tickets.html">Tickets</a>
-  <a href="register.html">Register</a>
-  <a href="merch.html">Merch</a>
-  <a href="certificates.html" aria-current="page">Certificates</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="tickets.html">Tickets</a>
+  <a href="register.html">Register</a>
+  <a href="merch.html">Merch</a>
+  <a href="certificates.html" aria-current="page">Certificates</a>
+  <a href="contact.html">Contact</a>
 </nav>
 ```
-
-  </div>
+  </div>
 </header>
-
 <main id="main-content">
-
-  <section class="section" data-band="navy" style="padding-bottom: 2rem;">
-    <div class="container" style="max-width: 900px;">
-
+  <section class="section" data-band="navy" style="padding-bottom: 2rem;">
+    <div class="container" style="max-width: 900px;">
 ```
-  <p class="eyebrow">Kaafila 2026</p>
-
-  <h1 class="section-title" style="font-size: 2.4rem;">
-    Certificates
-  </h1>
-
-  <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
-    Enter your school's unique 6-digit code and press the arrow to reach
-    your certificates.
-  </p>
-
+  <p class="eyebrow">Kaafila 2026</p>
+  <h1 class="section-title" style="font-size: 2.4rem;">
+    Certificates
+  </h1>
+  <p class="prose" style="margin-top: 1rem; color: var(--band-fg-dim);">
+    Enter your school's unique 6-digit code and press the arrow to reach
+    your certificates.
+  </p>
 </div>
 ```
-
-  </section>
-
-  <section class="section" data-band="white" style="padding-top: 2.5rem;">
-    <div class="container" style="max-width: 900px;">
-
+  </section>
+  <section class="section" data-band="white" style="padding-top: 2.5rem;">
+    <div class="container" style="max-width: 900px;">
 ```
-  <ul class="cert-grid">
-
-    <!-- 1. Gurukul The School -->
-    <li class="cert-card" data-code="482917">
-      <p class="cert-school">Gurukul The School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code1">Code for Gurukul The School</label>
-        <input class="cert-input" id="code1" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Gurukul The School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1oH8xmZi_PyuNetebgucPSAlVa_57EZhZ?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1HymSwa9Tjds6FsKkqsTQsofIulP0C_tI?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 2. Prakriti School -->
-    <li class="cert-card" data-code="739104">
-      <p class="cert-school">Prakriti School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code2">Code for Prakriti School</label>
-        <input class="cert-input" id="code2" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Prakriti School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1tbzAREP4BU2y7bMMCotvsYhV_RAk2rfm?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1bHtiOOe452y6fBJCMn_MyUUgfJo8udnf?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 3. Genesis Global School -->
-    <li class="cert-card" data-code="156283">
-      <p class="cert-school">Genesis Global School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code3">Code for Genesis Global School</label>
-        <input class="cert-input" id="code3" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Genesis Global School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1Bxfcdf0HnUd9q_eh9Jy7tV2S1C_srKBS?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 4. Ramagya -->
-    <li class="cert-card" data-code="904672">
-      <p class="cert-school">Ramagya</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code4">Code for Ramagya</label>
-        <input class="cert-input" id="code4" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Ramagya">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1lewc8M1ja-16uFqdLg9sVjwxEIAR18nZ?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1VkhxLJQ6EWFQz7Oq-amTay0D9gR2iXsU?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1v_6AUM9mmN6rI79AuNbsC7XQtdfK0L4C?usp=sharing" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1tc6DnPWs9mDSWK--HyJs16J3hMtRs2H7?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1_Pfynis9ZP6PCPeNbTQEriaCEq8Lm57K?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-       <li><a href="https://drive.google.com/drive/folders/12-U5X2OoJwTjgLpl4Hpd0dTCXO4jnLFE?usp=share_link " target="_blank" rel="noopener">clash of bands'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 5. Army Public School -->
-    <li class="cert-card" data-code="628401">
-      <p class="cert-school">Army Public School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code6">Code for Army Public School</label>
-        <input class="cert-input" id="code6" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Army Public School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1n3mMiCLy-BEmAX98UsFoDgGX7GAYAm02?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1vlqaUn0pHFgH7m2exC1JgpzBBr6AeNM4?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 6. Somerville School -->
-    <li class="cert-card" data-code="845396">
-      <p class="cert-school">Somerville School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code7">Code for Somerville School</label>
-        <input class="cert-input" id="code7" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Somerville School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/13KITIQUxD-EoTWd2gLCYGbeh1DHjbLJD?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/17uwR-ttkx6HoGQ4aPBvUcJLKoWoqTf5v?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1OuxbVuLqQPDIZaPfij8d6YT_zeTfeilF?usp=sharing" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1zluOmiM1CRdDwTUKOhOYpb7_7efYVw9t?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 7. Heritage Experiential School -->
-    <li class="cert-card" data-code="273918">
-      <p class="cert-school">Heritage Experiential School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code8">Code for Heritage Experiential School</label>
-        <input class="cert-input" id="code8" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Heritage Experiential School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-    </li>
-
-
-    <!-- 8. Shiv Nadar School Faridabad -->
-    <li class="cert-card" data-code="591047">
-      <p class="cert-school">Shiv Nadar School Faridabad</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code9">Code for Shiv Nadar School Faridabad</label>
-        <input class="cert-input" id="code9" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Faridabad">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1Pf-IzPuZG963oPeLTb_iRiONSkcYybOU?usp=share_link" target="_blank" rel="noopener">Clash Of Bands'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1d94xdHxfTsZO1Dg8di1DrnjEjQ7Eu2E5?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 9. Pathways School Noida -->
-    <li class="cert-card" data-code="760235">
-      <p class="cert-school">Pathways School Noida</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code10">Code for Pathways School Noida</label>
-        <input class="cert-input" id="code10" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Pathways School Noida">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-    </li>
-
-
-    <!-- 10. Gyanshree Noida -->
-    <li class="cert-card" data-code="184629">
-      <p class="cert-school">Gyanshree Noida</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code11">Code for Gyanshree Noida</label>
-        <input class="cert-input" id="code11" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Gyanshree Noida">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/10y72WJRgS-c0FfprkMqcejL8PWCKWIw9?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1gsH75GMojW8U_BPFINS1eCweKmTfypiF?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/13plYlnhf1G2wFa1GJWnC3Kzk1xPOUaCB?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1yiIp7OddeEWb3QvkzJObK9sZy2-qclD5?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 11. Tagore International School -->
-    <li class="cert-card" data-code="936174">
-      <p class="cert-school">Tagore International School, East of Kailash</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code12">Code for Tagore International School, East of Kailash</label>
-        <input class="cert-input" id="code12" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Tagore International School, East of Kailash">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 12. Mayoor School Noida -->
-    <li class="cert-card" data-code="502863">
-      <p class="cert-school">Mayoor School Noida</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code13">Code for Mayoor School Noida</label>
-        <input class="cert-input" id="code13" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Mayoor School Noida">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1FkQryFQ5H7bXNOP-4FjYB4-BV1lo8xX4?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1btrgmkVqd0xk0qk54rHB474mvl-gQ2jm?usp=share_link" target="_blank" rel="noopener">Clash Of Bands'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1Jn-2AEjQcsnjiA8PIiUvOGT3Yddis8PH?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 13. Vasant Valley School -->
-    <li class="cert-card" data-code="417950">
-      <p class="cert-school">Vasant Valley School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code14">Code for Vasant Valley School</label>
-        <input class="cert-input" id="code14" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Vasant Valley School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1L83IVTTRWgM7QCi51PS2U3c1cJjGiTgz?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 14. Delhi World Public School -->
-    <li class="cert-card" data-code="253748">
-      <p class="cert-school">Delhi World Public School, Noida Extension</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code16">Code for Delhi World Public School, Noida Extension</label>
-        <input class="cert-input" id="code16" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Delhi World Public School, Noida Extension">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1VTVTJgJfefHcEDsE3HY8yowlUYERlBto?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 15. Shiv Nadar School Gurgaon -->
-    <li class="cert-card" data-code="871465">
-      <p class="cert-school">Shiv Nadar School Gurgaon</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code17">Code for Shiv Nadar School Gurgaon</label>
-        <input class="cert-input" id="code17" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Gurgaon">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1krO9_joih-e7gpZOr41GvPU5HEvmftRB?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 16. KR Mangalam School GK2 -->
-    <li class="cert-card" data-code="364852">
-      <p class="cert-school">KR Mangalam School GK2</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code18">Code for KR Mangalam School GK2</label>
-        <input class="cert-input" id="code18" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for KR Mangalam School GK2">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1MbVZYOeVwcjO09ohk1O9Top_9UhhdFwH?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1rah7s-U-Oy6Q8mBdhJXgkmAeMYgVICUQ?usp=share_link" target="_blank" rel="noopener">One Act Play'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/11jehFxENBza34hkdkixflR_B_i2IeOuF?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 17. Satya School Gurgaon -->
-    <li class="cert-card" data-code="518294">
-      <p class="cert-school">Satya School Gurgaon</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code19">Code for Satya School Gurgaon</label>
-        <input class="cert-input" id="code19" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Satya School Gurgaon">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1nVxoc1sY5xrh2UBeUCmDUTk5ULdnj04x?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 18. Jaypee Public School -->
-    <li class="cert-card" data-code="673019">
-      <p class="cert-school">Jaypee Public School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code20">Code for Jaypee Public School</label>
-        <input class="cert-input" id="code20" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Jaypee Public School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1R9BHJd5UDnYaxUOdMsN6T2SsAAlmUp-H?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 19. DPS International Gurgaon -->
-    <li class="cert-card" data-code="829406">
-      <p class="cert-school">DPS International Gurgaon</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code21">Code for DPS International Gurgaon</label>
-        <input class="cert-input" id="code21" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for DPS International Gurgaon">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/1_gti2Ms3pLH_4gaqiR5zV-2SjvYFy9Pb?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1HKZCmer8T77-fmwe9x9Mc4yPd5vUsutR?usp=share_link" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 20. Aster Public School -->
-    <li class="cert-card" data-code="145738">
-      <p class="cert-school">Aster Public School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code22">Code for Aster Public School</label>
-        <input class="cert-input" id="code22" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Aster Public School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-    </li>
-
-
-    <!-- 21. Jayshree Periwal International School -->
-    <li class="cert-card" data-code="906271">
-      <p class="cert-school">Jayshree Periwal International School</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code23">Code for Jayshree Periwal International School</label>
-        <input class="cert-input" id="code23" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Jayshree Periwal International School">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/12nad9_QU64eshvihnTXDgYXBvHTgGgQD?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-   <li><a href="https://drive.google.com/drive/folders/1wgey1-8ebRb3J7tnI39gfTQ_Gy3pzc2N?usp=share_link" target="_blank" rel="noopener">anugoonj'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1t_Fu814LEkwRDvL5M5Q70m2_zdmvvENN?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-
-    <!-- 22. Vidyagyan Leadership Academy -->
-    <li class="cert-card" data-code="738591">
-      <p class="cert-school">Vidyagyan Leadership Academy</p>
-
-      <form class="cert-form" novalidate>
-        <label class="visually-hidden" for="code24">Code for Vidyagyan Leadership Academy</label>
-        <input class="cert-input" id="code24" type="text" inputmode="numeric" maxlength="6"
-               autocomplete="off" spellcheck="false" placeholder="Code">
-        <button class="cert-go" type="submit" aria-label="Open certificates for Vidyagyan Leadership Academy">&rarr;</button>
-      </form>
-
-      <p class="cert-msg" role="status" aria-live="polite"></p>
-
-      <ul class="cert-links" hidden>
-        <li><a href="https://drive.google.com/drive/folders/195NrZ6J2nAxyFLt6A4tOPfbzxcH6ImNG?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1Q6FjrAL8SNCF5NiZYeHWYAOOyoEXd6DU?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates &nearr;</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1A-aT8x3BMMhuoadcUJpGnv1FCynTeNLf?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates &nearr;</a></li>
-      </ul>
-    </li>
-
-  </ul>
-
+  <ul class="cert-grid">
+    <!-- 1. Gurukul The School -->
+    <li class="cert-card" data-code="482917">
+      <p class="cert-school">Gurukul The School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code1">Code for Gurukul The School</label>
+        <input class="cert-input" id="code1" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Gurukul The School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1oH8xmZi_PyuNetebgucPSAlVa_57EZhZ?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1HymSwa9Tjds6FsKkqsTQsofIulP0C_tI?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 2. Prakriti School -->
+    <li class="cert-card" data-code="739104">
+      <p class="cert-school">Prakriti School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code2">Code for Prakriti School</label>
+        <input class="cert-input" id="code2" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Prakriti School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1tbzAREP4BU2y7bMMCotvsYhV_RAk2rfm?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1bHtiOOe452y6fBJCMn_MyUUgfJo8udnf?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 3. Genesis Global School -->
+    <li class="cert-card" data-code="156283">
+      <p class="cert-school">Genesis Global School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code3">Code for Genesis Global School</label>
+        <input class="cert-input" id="code3" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Genesis Global School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1Bxfcdf0HnUd9q_eh9Jy7tV2S1C_srKBS?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 4. Ramagya -->
+    <li class="cert-card" data-code="904672">
+      <p class="cert-school">Ramagya</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code4">Code for Ramagya</label>
+        <input class="cert-input" id="code4" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Ramagya">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1lewc8M1ja-16uFqdLg9sVjwxEIAR18nZ?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1VkhxLJQ6EWFQz7Oq-amTay0D9gR2iXsU?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1v_6AUM9mmN6rI79AuNbsC7XQtdfK0L4C?usp=sharing" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1u_EMDWhI_nHu6q4_5uVhXRY1HeSjtrx_?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1tc6DnPWs9mDSWK--HyJs16J3hMtRs2H7?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1_Pfynis9ZP6PCPeNbTQEriaCEq8Lm57K?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+       <li><a href="https://drive.google.com/drive/folders/12-U5X2OoJwTjgLpl4Hpd0dTCXO4jnLFE?usp=share_link " target="_blank" rel="noopener">clash of bands'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 5. Army Public School -->
+    <li class="cert-card" data-code="628401">
+      <p class="cert-school">Army Public School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code6">Code for Army Public School</label>
+        <input class="cert-input" id="code6" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Army Public School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1n3mMiCLy-BEmAX98UsFoDgGX7GAYAm02?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1vlqaUn0pHFgH7m2exC1JgpzBBr6AeNM4?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 6. Somerville School -->
+    <li class="cert-card" data-code="845396">
+      <p class="cert-school">Somerville School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code7">Code for Somerville School</label>
+        <input class="cert-input" id="code7" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Somerville School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/13KITIQUxD-EoTWd2gLCYGbeh1DHjbLJD?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/17uwR-ttkx6HoGQ4aPBvUcJLKoWoqTf5v?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1OuxbVuLqQPDIZaPfij8d6YT_zeTfeilF?usp=sharing" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1zluOmiM1CRdDwTUKOhOYpb7_7efYVw9t?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 7. Heritage Experiential School -->
+    <li class="cert-card" data-code="273918">
+      <p class="cert-school">Heritage Experiential School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code8">Code for Heritage Experiential School</label>
+        <input class="cert-input" id="code8" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Heritage Experiential School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+    </li>
+    <!-- 8. Shiv Nadar School Faridabad -->
+    <li class="cert-card" data-code="591047">
+      <p class="cert-school">Shiv Nadar School Faridabad</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code9">Code for Shiv Nadar School Faridabad</label>
+        <input class="cert-input" id="code9" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Faridabad">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1Pf-IzPuZG963oPeLTb_iRiONSkcYybOU?usp=share_link" target="_blank" rel="noopener">Clash Of Bands'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1d94xdHxfTsZO1Dg8di1DrnjEjQ7Eu2E5?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 9. Pathways School Noida -->
+    <li class="cert-card" data-code="760235">
+      <p class="cert-school">Pathways School Noida</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code10">Code for Pathways School Noida</label>
+        <input class="cert-input" id="code10" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Pathways School Noida">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+    </li>
+    <!-- 10. Gyanshree Noida -->
+    <li class="cert-card" data-code="184629">
+      <p class="cert-school">Gyanshree Noida</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code11">Code for Gyanshree Noida</label>
+        <input class="cert-input" id="code11" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Gyanshree Noida">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/10y72WJRgS-c0FfprkMqcejL8PWCKWIw9?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1gsH75GMojW8U_BPFINS1eCweKmTfypiF?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/13plYlnhf1G2wFa1GJWnC3Kzk1xPOUaCB?usp=share_link" target="_blank" rel="noopener">Naad Sutra'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1yiIp7OddeEWb3QvkzJObK9sZy2-qclD5?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 11. Tagore International School -->
+    <li class="cert-card" data-code="936174">
+      <p class="cert-school">Tagore International School, East of Kailash</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code12">Code for Tagore International School, East of Kailash</label>
+        <input class="cert-input" id="code12" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Tagore International School, East of Kailash">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1z2sHwwapSa94cZMvScWXE0fxrrjSjebJ?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 12. Mayoor School Noida -->
+    <li class="cert-card" data-code="502863">
+      <p class="cert-school">Mayoor School Noida</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code13">Code for Mayoor School Noida</label>
+        <input class="cert-input" id="code13" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Mayoor School Noida">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1FkQryFQ5H7bXNOP-4FjYB4-BV1lo8xX4?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1btrgmkVqd0xk0qk54rHB474mvl-gQ2jm?usp=share_link" target="_blank" rel="noopener">Clash Of Bands'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1sgV1TOBYDCY6QKtxBsA3ndZ4oJzITiiu?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1Jn-2AEjQcsnjiA8PIiUvOGT3Yddis8PH?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 13. Vasant Valley School -->
+    <li class="cert-card" data-code="417950">
+      <p class="cert-school">Vasant Valley School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code14">Code for Vasant Valley School</label>
+        <input class="cert-input" id="code14" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Vasant Valley School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1L83IVTTRWgM7QCi51PS2U3c1cJjGiTgz?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 14. Delhi World Public School -->
+    <li class="cert-card" data-code="253748">
+      <p class="cert-school">Delhi World Public School, Noida Extension</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code16">Code for Delhi World Public School, Noida Extension</label>
+        <input class="cert-input" id="code16" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Delhi World Public School, Noida Extension">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1VTVTJgJfefHcEDsE3HY8yowlUYERlBto?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 15. Shiv Nadar School Gurgaon -->
+    <li class="cert-card" data-code="871465">
+      <p class="cert-school">Shiv Nadar School Gurgaon</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code17">Code for Shiv Nadar School Gurgaon</label>
+        <input class="cert-input" id="code17" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Shiv Nadar School Gurgaon">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1krO9_joih-e7gpZOr41GvPU5HEvmftRB?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1lWIp0wlQ5MlIogpacaPReemizlN4MA4A?usp=sharing" target="_blank" rel="noopener">One Act Play'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/10lGVQKUSD0_pX2XxkFNibM9urGhGbnJ9?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 16. KR Mangalam School GK2 -->
+    <li class="cert-card" data-code="364852">
+      <p class="cert-school">KR Mangalam School GK2</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code18">Code for KR Mangalam School GK2</label>
+        <input class="cert-input" id="code18" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for KR Mangalam School GK2">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1MbVZYOeVwcjO09ohk1O9Top_9UhhdFwH?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1rah7s-U-Oy6Q8mBdhJXgkmAeMYgVICUQ?usp=share_link" target="_blank" rel="noopener">One Act Play'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/11jehFxENBza34hkdkixflR_B_i2IeOuF?usp=share_link" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 17. Satya School Gurgaon -->
+    <li class="cert-card" data-code="518294">
+      <p class="cert-school">Satya School Gurgaon</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code19">Code for Satya School Gurgaon</label>
+        <input class="cert-input" id="code19" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Satya School Gurgaon">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1nVxoc1sY5xrh2UBeUCmDUTk5ULdnj04x?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 18. Jaypee Public School -->
+    <li class="cert-card" data-code="673019">
+      <p class="cert-school">Jaypee Public School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code20">Code for Jaypee Public School</label>
+        <input class="cert-input" id="code20" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Jaypee Public School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1R9BHJd5UDnYaxUOdMsN6T2SsAAlmUp-H?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 19. DPS International Gurgaon -->
+    <li class="cert-card" data-code="829406">
+      <p class="cert-school">DPS International Gurgaon</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code21">Code for DPS International Gurgaon</label>
+        <input class="cert-input" id="code21" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for DPS International Gurgaon">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/1_gti2Ms3pLH_4gaqiR5zV-2SjvYFy9Pb?usp=share_link" target="_blank" rel="noopener">Anugoonj — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1HKZCmer8T77-fmwe9x9Mc4yPd5vUsutR?usp=share_link" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 20. Aster Public School -->
+    <li class="cert-card" data-code="145738">
+      <p class="cert-school">Aster Public School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code22">Code for Aster Public School</label>
+        <input class="cert-input" id="code22" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Aster Public School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+    </li>
+    <!-- 21. Jayshree Periwal International School -->
+    <li class="cert-card" data-code="906271">
+      <p class="cert-school">Jayshree Periwal International School</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code23">Code for Jayshree Periwal International School</label>
+        <input class="cert-input" id="code23" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Jayshree Periwal International School">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/12nad9_QU64eshvihnTXDgYXBvHTgGgQD?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+   <li><a href="https://drive.google.com/drive/folders/1wgey1-8ebRb3J7tnI39gfTQ_Gy3pzc2N?usp=share_link" target="_blank" rel="noopener">anugoonj'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1t_Fu814LEkwRDvL5M5Q70m2_zdmvvENN?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+    <!-- 22. Vidyagyan Leadership Academy -->
+    <li class="cert-card" data-code="738591">
+      <p class="cert-school">Vidyagyan Leadership Academy</p>
+      <form class="cert-form" novalidate>
+        <label class="visually-hidden" for="code24">Code for Vidyagyan Leadership Academy</label>
+        <input class="cert-input" id="code24" type="text" inputmode="numeric" maxlength="6"
+               autocomplete="off" spellcheck="false" placeholder="Code">
+        <button class="cert-go" type="submit" aria-label="Open certificates for Vidyagyan Leadership Academy">→</button>
+      </form>
+      <p class="cert-msg" role="status" aria-live="polite"></p>
+      <ul class="cert-links" hidden>
+        <li><a href="https://drive.google.com/drive/folders/195NrZ6J2nAxyFLt6A4tOPfbzxcH6ImNG?usp=share_link" target="_blank" rel="noopener">Chaupaal'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1Q6FjrAL8SNCF5NiZYeHWYAOOyoEXd6DU?usp=sharing" target="_blank" rel="noopener">Rangrez'26 — Certificates ↗</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1A-aT8x3BMMhuoadcUJpGnv1FCynTeNLf?usp=sharing" target="_blank" rel="noopener">Weave The Beat'26 — Certificates ↗</a></li>
+      </ul>
+    </li>
+  </ul>
 </div>
 ```
-
-  </section>
-
+  </section>
 </main>
-
 <footer class="site-footer">
-  <div class="container footer-row" style="padding-top: 1.5rem;">
-    <span>&copy; 2026 Shiv Nadar School &middot; Kaafila</span>
-    <span>Taana Baana &mdash; The Timelessness of Humanity</span>
-  </div>
+  <div class="container footer-row" style="padding-top: 1.5rem;">
+    <span>© 2026 Shiv Nadar School · Kaafila</span>
+    <span>Taana Baana — The Timelessness of Humanity</span>
+  </div>
 </footer>
-
 <script src="js/events-data.js?v=202608132230"></script>
-
 <script src="js/main.js?v=202608132230"></script>
-
 <script>
 document.querySelectorAll(".cert-card").forEach(function (card) {
-
-  var form = card.querySelector(".cert-form");
-  var input = card.querySelector(".cert-input");
-  var msg = card.querySelector(".cert-msg");
-
-  form.addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    var entered = input.value.replace(/\s/g, "");
-
-    if (entered !== card.dataset.code) {
-
-      msg.textContent = "Invalid code.";
-      msg.classList.add("is-error");
-      input.focus();
-
-      return;
-    }
-
-    msg.classList.remove("is-error");
-
-    var list = card.querySelector(".cert-links");
-
-    if (list) {
-
-      list.hidden = false;
-
-      msg.textContent =
-        "Code accepted — your certificate folders are below.";
-
-      return;
-    }
-
-    msg.textContent =
-      "Code accepted — certificates are not uploaded yet.";
-
-  });
-
+  var form = card.querySelector(".cert-form");
+  var input = card.querySelector(".cert-input");
+  var msg = card.querySelector(".cert-msg");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var entered = input.value.replace(/\s/g, "");
+    if (entered !== card.dataset.code) {
+      msg.textContent = "Invalid code.";
+      msg.classList.add("is-error");
+      input.focus();
+      return;
+    }
+    msg.classList.remove("is-error");
+    var list = card.querySelector(".cert-links");
+    if (list) {
+      list.hidden = false;
+      msg.textContent =
+        "Code accepted — your certificate folders are below.";
+      return;
+    }
+    msg.textContent =
+      "Code accepted — certificates are not uploaded yet.";
+  });
 });
 </script>
-
 </body>
 </html>
 
